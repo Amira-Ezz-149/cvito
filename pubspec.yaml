@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   form_field_validator: ^1.1.0
   animated_splash_screen: ^1.2.0
+  carousel_slider: ^4.0.0
+  delayed_display: ^2.0.0
+  flutter_carousel_slider: ^1.0.8
 
 dev_dependencies:
   flutter_test:
@@ -66,7 +69,11 @@ flutter:
   assets:
     - assets/images/
     - assets/images/app_logo.png
-    - assets/images/rafiki.jpg
+    - assets/images/rafiki.png
+    - assets/images/bro.png
+    - assets/images/business.png
+    - assets/images/rafikti.png
+    - assets/images/get_started.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
