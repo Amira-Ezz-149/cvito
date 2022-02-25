@@ -1,53 +1,60 @@
+import 'package:cvito/layout/widgets/clip_path.dart';
+import 'package:cvito/constants/sized_config.dart';
 import 'package:flutter/material.dart';
 
-class IntroSlider extends StatelessWidget {
-
-  String? imageLink;
-  String? title;
-  String? description;
-
-  IntroSlider({
-    this.imageLink,
-    this.title,
-    this.description,
-
-  });
-
+class IntroSliderContent extends StatelessWidget {
+  const IntroSliderContent({
+    Key? key,
+    required this.description,
+    required this.imageLink,
+    required this.title,
+  }) : super(key: key);
+  final String? title, description, imageLink;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Expanded(
-          child: Container(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width,
-            height: MediaQuery
-                .of(context)
-                .size
-                .height / 2.5,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fitHeight,
-                  image: AssetImage(imageLink!),
-                )),
+        DrawHalfCircle(),
+        Container(
+          child: Column(
+            children: [
+              const Spacer(flex: 5),
+
+              const Spacer(flex: 3,),
+              Image.asset(
+                imageLink!,
+                height: getProportionateScreenHeight(300),
+                width: getProportionateScreenHeight(300),
+              ),
+              const Spacer(
+                flex: 4,
+              ),
+
+              ///===============================================
+              /// title
+              Text(
+                title!,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+              ),
+              const Spacer(
+                flex: 2,
+              ),
+
+              ///===================================================
+              /// description
+              Center(child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Text(description!, textAlign: TextAlign.center),
+              )),
+              const Spacer(
+                flex: 1,
+              ),
+            ],
           ),
         ),
-        const SizedBox(
-          height: 15.0,
-        ),
-        Text(title!,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-        ),
-        const SizedBox(
-          height: 10.0,
-        ),
-        Text(description!,
-            textAlign: TextAlign.center),
       ],
     );
   }
 }
-

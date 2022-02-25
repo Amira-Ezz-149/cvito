@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       splashIconSize:180.0,
       splash: Image.asset('assets/images/app_logo.png', fit: BoxFit.cover),
-      nextScreen: const WelcomeScreen(),
+      nextScreen: WelcomeScreen(),
       splashTransition: SplashTransition.scaleTransition,
     );
   }

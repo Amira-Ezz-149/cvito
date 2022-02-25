@@ -1,87 +1,146 @@
+import 'package:cvito/constants/constants.dart';
+import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/layout/screens/get_started_screen.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import '../widgets/basic_custom_button.dart';
 import '../widgets/intro_slider.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  static const String id = 'WelcomeScreen';
+class WelcomeScreen extends StatefulWidget {
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
 
-  const WelcomeScreen({Key? key}) : super(key: key);
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  int currentPage = 0;
+  List<Map> welcomeData = [
+    ///============================================
+    /// Create An Automated CV   ... rafiki image
+    {
+      "title": "Create An Automated CV",
+      "description": "Our app helps you to build an automated CV differently!",
+      "image": "assets/images/rafiki.png"
+    },
+
+    ///=====================================================================================
+    /// find your job ....bro image
+
+    {
+      "title": 'Find Your Job',
+      "description":
+          "It will also help you to find a job remotely without recruiters.",
+      "image": "assets/images/bro.png"
+    },
+
+    ///======================================================================================
+    ///find Employess  ....business image
+
+    {
+      "title": "Find Employees",
+      "description": "A company can also find its employees!",
+      "image": "assets/images/business.png"
+    },
+
+    ///============================================================================================
+    ///Create a manual CV  ....rafikti image
+
+    {
+      "title": "Create A Manual CV",
+      "description":
+          "Create your CV with yourself and customize it with any template that attracts you.",
+      "image": "assets/images/rafikti.png"
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        title: const Padding(
-          padding: EdgeInsets.only(top: 30.0),
-          child: Text(
-            'Welcome!',
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
-          ),
-        ),
-      ),
+      ///white60
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SizedBox(
-              height: 500,
-              child: CarouselSlider(
-                items: <Widget>[
-                  ///======================================================================================
-                  /// Create An Automated CV   ... rafiki image
-                  IntroSlider(
-                    imageLink: 'assets/images/rafiki.png',
-                    title: 'Create An Automated CV',
-                    description:
-                        'Our app helps you build an automated CV differently!',
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 3,
+                child: PageView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  onPageChanged: (value) {
+                    setState(() {
+                      currentPage = value;
+                    });
+                  },
+                  itemCount: welcomeData.length,
+                  itemBuilder: (context, index) => IntroSliderContent(
+                    title: welcomeData[index]['title'],
+                    description: welcomeData[index]['description'],
+                    imageLink: welcomeData[index]['image'],
                   ),
-
-                  ///=====================================================================================
-                  /// find your job ....bro image
-                  IntroSlider(
-                    imageLink: 'assets/images/bro.png',
-                    title: 'Find Your Job',
-                    description:
-                        'It will also help you find a job remotely without recruiters.',
-                  ),
-
-                  ///======================================================================================
-                  ///find Employess  ....business image
-                  IntroSlider(
-                    imageLink: 'assets/images/business.png',
-                    title: 'Find Employees',
-                    description: 'A Company Can Also Find Its Employees!',
-                  ),
-
-                  ///============================================================================================
-                  ///Create a manual CV  ....rafikti image
-                  IntroSlider(
-                    imageLink: 'assets/images/rafikti.png',
-                    title: 'Create A Manual CV',
-                    description:
-                        'Create your CV with yourself and customize it with any template that attracts you.',
-                  ),
-                ],
-                options: CarouselOptions(
-                    enlargeCenterPage: true,
-                    height: MediaQuery.of(context).size.height * 40 / 100),
+                ),
               ),
-            ),
-         BasicCustomButton(text: 'Next', function: (){
-           navigateTo(context: context, widget: const GetStartedScreen());
-         })
-          ],
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20)),
+                  child: Column(
+                    children: <Widget>[
+                      const Spacer(),
+
+                      ///===============================================
+                      ///swapping between images
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                          welcomeData.length,
+
+                          ///============================================
+                          ///slider
+                              (index) => buildDot(
+                            index: index,
+                          ),
+                        ),
+                      ),
+                      const Spacer(
+                        flex: 2,
+                      ),
+
+                      ///=================================================
+                      /// next button
+                      SizedBox(
+                        child: BasicCustomButton(
+                            text: 'Start',
+                            function: () {
+                              navigateTo(
+                                  context: context, widget: GetStartedScreen());
+                            }),
+                      ),
+                      const Spacer()
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
-}
 
+
+
+
+  AnimatedContainer buildDot({int? index}) {
+    return AnimatedContainer(
+      margin: const EdgeInsets.only(right: 5),
+      height: 6,
+      width: currentPage == index ? 20 : 6,
+      decoration: BoxDecoration(
+          color: currentPage == index ? kBasicColor : Colors.grey,
+          borderRadius: BorderRadius.circular(3)),
+      duration: kAnimationDuration,
+    );
+  }
+}

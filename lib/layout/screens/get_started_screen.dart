@@ -1,4 +1,4 @@
-
+import 'package:cvito/constants/constants.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/secondary_custom_button.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +9,17 @@ class GetStartedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          color: kBasicColor,
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.arrow_back)),
+      ),
       body: Center(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -39,4 +50,4 @@ class GetStartedScreen extends StatelessWidget {
     );
   }
 }
-// buttonBorderAndTextColor: kBasicColor,buttonColor: Colors.white,
+

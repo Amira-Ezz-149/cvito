@@ -1,7 +1,4 @@
-import 'package:cvito/layout/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'layout/screens/home_screen.dart';
 import 'layout/screens/welcome_screen.dart';
 
 void main() {
@@ -17,15 +14,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          backgroundColor: Colors.blue,
-        ),
-      routes: {
-        WelcomeScreen.id: (context) => WelcomeScreen(),
-        // HomeScreen.id: (context) => HomeScreen(),
-      },
-      initialRoute: SplashScreen.id,
-      home: SplashScreen(),
+          //primarySwatch: Colors.blue,
+          // backgroundColor: kBackgroundColor,
+          ),
+      // routes: {
+      //   WelcomeScreen.id: (context) => WelcomeScreen(),
+      //   // HomeScreen.id: (context) => HomeScreen(),
+      // },
+      // initialRoute: SplashScreen.id,
+      home: WelcomeScreen(),
+
+      //  home: DrawHalfCircle(),
     );
   }
 }

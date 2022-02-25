@@ -1,15 +1,15 @@
-import 'package:cvito/constants.dart';
+import 'package:cvito/constants/constants.dart';
 import 'package:flutter/material.dart';
-
 
 /// for company button
 class SecondaryCustomButton extends StatelessWidget {
-  const SecondaryCustomButton({@required this.text, @required this.function,});
+  const SecondaryCustomButton({
+    @required this.text,
+    @required this.function,
+  });
 
   final String? text;
   final VoidCallback? function;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,8 @@ class SecondaryCustomButton extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(color: kBasicColor),
             color: Colors.white,
-            borderRadius: BorderRadius.circular(50.0),),
+            borderRadius: BorderRadius.circular(50.0),
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 40),
             child: Text(
