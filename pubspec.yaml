@@ -76,6 +76,7 @@ flutter:
     - assets/images/business.png
     - assets/images/rafikti.png
     - assets/images/get_started.png
+    - assets/images/card1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
