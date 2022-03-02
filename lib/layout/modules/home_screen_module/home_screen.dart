@@ -1,10 +1,8 @@
-///لو في أي كود محتاجين نشيله على جمب علشان نتيست كود تاني ممكن نحطه هنا مؤقتًا
-import 'package:cvito/constants/constants.dart';
 import 'package:cvito/layout/widgets/custom_card.dart';
 import 'package:cvito/layout/widgets/default_form_field.dart';
+import 'package:cvito/layout/widgets/line_chart_widget.dart';
 import 'package:flutter/material.dart';
 
-/*
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
   static const String id = 'WelcomeScreen';
@@ -19,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         child: SafeArea(
           child: Padding(
             padding:
-            const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -33,12 +31,14 @@ class HomeScreen extends StatelessWidget {
 
                     ///==========================================================
                     ///search bar
-                    defaultTextFormField(
-                        controller: searchController,
-                        type: TextInputType.text,
-                        onChanged: () {},
-                        label: "Search",
-                        prefix: Icons.search),
+                    Expanded(
+                      child: defaultTextFormField(
+                          controller: searchController,
+                          type: TextInputType.text,
+                          onChanged: () {},
+                          label: "Search",
+                          prefix: Icons.search),
+                    ),
                   ],
                 ),
                 // Spacer(),
@@ -69,28 +69,32 @@ class HomeScreen extends StatelessWidget {
 
                 ///==============================================================
                 ///Row of        ...Results, view details
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const Text(
-                      'Results',
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    ),
-                    const Spacer(),
-                    TextButton(
-                        onPressed: () {}, child: const Text('view details >'))
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 30.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text(
+                        'Results',
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
+                      const Spacer(),
+                      TextButton(
+                          onPressed: () {}, child: const Text('view details >'))
+                    ],
+                  ),
                 ),
 
                 ///==============================================================
                 ///Rating Graph
                 Container(
-                  color: Colors.amber,
+                  color: Colors.white,
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 2.5,
+                  child: LineChartWidget(),
                 )
               ],
             ),
@@ -100,4 +104,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-*/

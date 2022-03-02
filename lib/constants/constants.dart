@@ -10,3 +10,5 @@ TextStyle kWelcomText = const TextStyle(
     color: Color(0xff040404), fontSize: 50, fontWeight: FontWeight.w700);
 
 const kAnimationDuration = Duration(milliseconds: 400);
+
+const Color kCustomBlack = Color(0xff4F4F4F);

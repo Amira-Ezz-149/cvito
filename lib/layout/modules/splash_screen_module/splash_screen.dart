@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:cvito/layout/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import '../welcome_module/welcome_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       backgroundColor: Colors.white,
-      splashIconSize:180.0,
+      splashIconSize: 180.0,
       splash: Image.asset('assets/images/app_logo.png', fit: BoxFit.cover),
       nextScreen: WelcomeScreen(),
       splashTransition: SplashTransition.scaleTransition,

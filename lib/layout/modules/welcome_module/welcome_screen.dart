@@ -1,17 +1,14 @@
-import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/cubit/cubit.dart';
 import 'package:cvito/cubit/states.dart';
-import 'package:cvito/layout/screens/get_started_screen.dart';
+import 'package:cvito/layout/modules/get_started_module/get_started_screen.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../widgets/basic_custom_button.dart';
-import '../widgets/intro_slider.dart';
+import '../../widgets/basic_custom_button.dart';
+import '../../widgets/intro_slider.dart';
 
 class WelcomeScreen extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

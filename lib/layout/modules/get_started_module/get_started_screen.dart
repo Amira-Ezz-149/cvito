@@ -1,6 +1,8 @@
 import 'package:cvito/constants/constants.dart';
+import 'package:cvito/layout/modules/cv_layout.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/secondary_custom_button.dart';
+import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 
 class GetStartedScreen extends StatelessWidget {
@@ -18,7 +20,7 @@ class GetStartedScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -41,7 +43,9 @@ class GetStartedScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0),
-                child: SecondaryCustomButton(text: 'Company', function: () {}),
+                child: SecondaryCustomButton(text: 'Company', function: () {
+                  navigateTo(context: context, widget: const LayoutScreen());
+                }),
               )
             ],
           ),

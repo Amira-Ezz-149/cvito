@@ -12,7 +12,8 @@ Widget defaultTextFormField({
   Function? suffixPressed,
   bool isClickable = true,
 }) =>
-    Expanded(
+    SizedBox(
+      height: 45.0,
       child: TextFormField(
         onChanged: (value) {
           onChanged(value);
@@ -22,6 +23,7 @@ Widget defaultTextFormField({
         enabled: isClickable,
         validator: validate,
         decoration: InputDecoration(
+          isDense: false,
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(width: 1, color: Colors.grey.shade200),
               borderRadius: BorderRadius.circular(10)),

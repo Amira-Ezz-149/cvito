@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class DrawHalfCircle extends StatelessWidget {
@@ -8,15 +7,15 @@ class DrawHalfCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       ///white60
-      backgroundColor:Colors.white,
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           ClipPath(
             clipper: MyCliper(),
             child: Container(
               height: 200,
-              decoration:  BoxDecoration(
-                color:Colors.grey.withOpacity(.25),
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(.25),
               ),
               child: const Center(),
             ),
@@ -34,13 +33,11 @@ class MyCliper extends CustomClipper<Path> {
     double height = size.height;
     double offset = 100.0;
     var path = Path();
-    path.lineTo(0, height-offset);
-    path.quadraticBezierTo(width/2, height, width, height-offset);
+    path.lineTo(0, height - offset);
+    path.quadraticBezierTo(width / 2, height, width, height - offset);
     path.lineTo(size.width, 0);
     path.close();
     return path;
-
-
   }
 
   @override

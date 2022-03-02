@@ -1,7 +1,10 @@
-import 'package:cvito/layout/screens/home_screen.dart';
-import 'package:cvito/layout/screens/splash_screen.dart';
+import 'package:cvito/layout/modules/cv_layout.dart';
+import 'package:cvito/layout/modules/home_screen_module/home_screen.dart';
+import 'package:cvito/layout/modules/messages_module/messages_screen.dart';
+import 'package:cvito/layout/modules/notifications_module/notifications_screen.dart';
+import 'package:cvito/layout/modules/related_module/related_screen.dart';
+import 'package:cvito/layout/modules/splash_screen_module/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'layout/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +27,8 @@ class MyApp extends StatelessWidget {
       //   // HomeScreen.id: (context) => HomeScreen(),
       // },
       // initialRoute: SplashScreen.id,
-      home: WelcomeScreen(),
+      // home: WelcomeScreen(),
+      home: SplashScreen(),
 
       //  home: DrawHalfCircle(),
     );

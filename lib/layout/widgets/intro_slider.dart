@@ -15,7 +15,7 @@ class IntroSliderContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        DrawHalfCircle(),
+      const  DrawHalfCircle(),
         Container(
           child: Column(
             children: [
