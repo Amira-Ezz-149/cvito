@@ -8,12 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class MessagesScreen extends StatefulWidget {
-  @override
-  State<MessagesScreen> createState() => _MessagesScreenState();
-}
+class MessagesScreen extends StatelessWidget {
 
-class _MessagesScreenState extends State<MessagesScreen> {
   TextEditingController messagesSearchController = TextEditingController();
 
   @override
