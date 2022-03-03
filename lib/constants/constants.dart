@@ -8,3 +8,7 @@ const Color kBasicColor = Color(0xff0077B5);
 ///    TextStyle kTextTitleDecoration1 = TextStyle(fontSize: 40.0);
 TextStyle kWelcomText = const TextStyle(
     color: Color(0xff040404), fontSize: 50, fontWeight: FontWeight.w700);
+
+const kAnimationDuration = Duration(milliseconds: 400);
+
+const Color kCustomBlack = Color(0xff4F4F4F);
