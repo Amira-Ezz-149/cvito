@@ -4,6 +4,7 @@ import 'package:cvito/cubit/states.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../layout/modules/home_screen_module/home_screen.dart';
 import '../layout/modules/messages_module/messages_screen.dart';
@@ -70,6 +71,17 @@ class CVCubit extends Cubit<CVStates> {
       "description":
           "Create your CV with yourself and customize it with any template that attracts you.",
       "image": "assets/images/rafikti.png"
+    },
+
+
+    ///=========================================================================
+    ///Create a manual CV  ....rafikti image
+
+    {
+      "title": "Rephrase Awesome CV",
+      "description":
+          "Correct the grammar of your CV and rephrase it technically.",
+      "image": "assets/images/grammer_chaeck.png"
     },
   ];
 
@@ -155,5 +167,26 @@ class CVCubit extends Cubit<CVStates> {
       ),
     );
   }
+
+  ///===========================================================================
+/// TabHomeScreen
+  _launchEmail() async {
+    launch(
+        "mailto:miraezz14@gmail.com");
+  }
+
+  setLaunch(){
+    _launchEmail();
+    emit(CVEmailLaunch());
+  }
+
+  double rating = 0;
+
+  void ratingUpdate(double rating){
+    this.rating = rating;
+    emit(CVRatingUpdate());
+  }
+
+
 
 }

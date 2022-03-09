@@ -1,6 +1,11 @@
+import 'package:cvito/constants/constants.dart';
+import 'package:cvito/constants/sized_config.dart';
+import 'package:cvito/layout/modules/performance_screen.dart';
+import 'package:cvito/layout/modules/software_company_module/software_company_screen.dart';
 import 'package:cvito/layout/widgets/custom_card.dart';
 import 'package:cvito/layout/widgets/default_form_field.dart';
 import 'package:cvito/layout/widgets/line_chart_widget.dart';
+import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,6 +14,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     TextEditingController searchController = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
@@ -23,9 +29,14 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    CircleAvatar(
-                      radius: 25,
-                      child: Image.asset('assets/images/rafiki.png'),
+                    InkWell(
+                      child: CircleAvatar(
+                        radius: 25,
+                        child: Image.asset('assets/images/rafiki.png'),
+                      ),
+                      onTap: (){
+                        navigateTo(context: context, widget: SoftwareCompanyScreen());
+                      },
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width / 20),
 
@@ -67,6 +78,40 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
 
+                ///=============================================================
+                ///job description container
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                    width: SizeConfig.screenWidth,
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              'Job Applicants',
+                              style: TextStyle(color: kCustomBlack, fontWeight: FontWeight.w700, fontSize: 15.0),
+                            ),
+                            SizedBox(height:5.0 ,),
+                            Text(
+                              "See your job applicants here! \nApplicants CVs Matched With Your Job.",
+                              style: TextStyle(color: kCustomBlack, fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
+                      SizedBox(width: getProportionateScreenWidth(10),),
+                        Expanded(child: Image(image: AssetImage('assets/images/business.png',),  height: 70,))
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                ),
+
                 ///==============================================================
                 ///Row of        ...Results, view details
                 Padding(
@@ -75,7 +120,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       const Text(
-                        'Results',
+                        'Rank',
                         style: TextStyle(
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
@@ -83,7 +128,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const Spacer(),
                       TextButton(
-                          onPressed: () {}, child: const Text('view details >'))
+                          onPressed: () {
+                            navigateTo(
+                                context: context, widget: PerformanceScreen());
+                          },
+                          child: const Text('view details >'))
                     ],
                   ),
                 ),

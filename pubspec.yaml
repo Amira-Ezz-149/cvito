@@ -43,6 +43,15 @@ dependencies:
   flutter_bloc: ^8.0.1
   fl_chart: ^0.45.0
   flutter_slidable: ^1.2.0
+  #flutter_circular_slider: ^2.5.0
+  #sleek_circular_slider: ^2.0.1
+  percent_indicator: ^4.0.0
+  image_picker: ^0.8.4+8
+  readmore: ^2.1.0
+  url_launcher: ^6.0.20
+  flutter_rating_bar: ^4.0.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +90,8 @@ flutter:
     - assets/images/card1.png
     - assets/images/profile_photo.png
     - assets/images/linkedIn_logo.png
+    - assets/images/grammer_chaeck.png
+    - assets/images/company_background.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
