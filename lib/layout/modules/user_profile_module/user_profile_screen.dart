@@ -1,14 +1,11 @@
 import 'dart:io';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/modules/cv_layout.dart';
-import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_about_company_screen.dart';
 import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_home_company_screen.dart';
 import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_jobs_company_screen.dart';
+import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_about_user_screen.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/transparent_icon.dart';
-import 'package:cvito/utilities.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,22 +13,28 @@ import 'package:image_picker/image_picker.dart';
 /// for multi provider TickerProviderStateMixin
 /// for single provider SingleTickerProviderStateMixin
 
-class SoftwareCompanyScreen extends StatefulWidget {
+class UserProfileScreen extends StatefulWidget {
   @override
-  State<SoftwareCompanyScreen> createState() => _SoftwareCompanyScreenState();
+  State<UserProfileScreen> createState() => _UserProfileScreenState();
+  String jobTitle;
+  String jobLocation;
+
+  UserProfileScreen({required this.jobTitle, required this.jobLocation});
 }
 
-class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
+class _UserProfileScreenState extends State<UserProfileScreen>
     with TickerProviderStateMixin {
   File? profileImage;
   File? backgroundImage;
+
+
 
   Future pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
       final imageTemporary = File(image.path);
-      return imageTemporary;
+     return imageTemporary;
     } on PlatformException catch (e) {
       debugPrint('failed to pick image : $e');
     }
@@ -44,14 +47,14 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
 
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///===========================================================
               /// profile cover
-              Container(
-                // color: Colors.black,
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Stack(
                   fit: StackFit.loose,
@@ -63,7 +66,7 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          //todo backgroundImage UI
+                          //todo imageBackground UI
                           image: backgroundImage != null
                               ? Image.file(
                                   backgroundImage!,
@@ -83,9 +86,7 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                             TransparentIcon(
                               icon: Icons.arrow_back,
                               onPressed: () {
-                                navigateTo(
-                                    context: context,
-                                    widget: const LayoutScreen());
+                               Navigator.pop(context);
                               },
                             ),
                             TransparentIcon(
@@ -93,7 +94,7 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                               onPressed: () {
                                 //todo calling backgroundImage
                                 pickImage().then((value) {
-                                  if (value != null) debugPrint('finish');
+                                  if(value != null) debugPrint('finish');
                                   debugPrint(value.toString());
                                   setState(() {
                                     backgroundImage = value;
@@ -122,8 +123,8 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15.0),
+                                ClipOval(
+                                  // borderRadius: BorderRadius.circular(15.0),
                                   //todo profileImage UI
                                   child: profileImage != null
                                       ? Image.file(
@@ -139,8 +140,8 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                             ),
                           ),
                           Positioned(
-                            right: -10,
-                            bottom: 10,
+                            right: -5,
+                            bottom: 15,
                             // alignment: Alignment.bottomRight,
                             child: GestureDetector(
                               // behavior: HitTestBehavior.translucent,
@@ -148,12 +149,12 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                                 //todo calling profileImage
                                 debugPrint('onClick');
                                 pickImage().then((value) {
-                                  if (value != null) debugPrint('finish');
+                                  if(value != null) debugPrint('finish');
                                   debugPrint(value.toString());
                                   setState(() {
                                     profileImage = value;
                                   });
-                                });
+                                } );
                               },
                               child: const CircleAvatar(
                                 child: Icon(
@@ -174,10 +175,10 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                   ],
                 ),
               ),
+              SizedBox(height: getProportionateScreenHeight(20.0)),
 
               ///===============================================================================================
               ///screen content
-              SizedBox(height: getProportionateScreenHeight(20.0)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
@@ -185,28 +186,36 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                   children: [
                     ///=========================================================
                     ///company title and its description
-                    const Text(
-                      "Software Company",
+                     Text('Eyad Najy ',
                       style: TextStyle(
                           color: kCustomBlack,
                           fontWeight: FontWeight.w500,
                           fontSize: 25.0),
                     ),
                     const SizedBox(height: 10.0),
-                    const Text(
-                      "Egypt software company building mobile applications ",
+                     Text(
+                      widget.jobTitle,
                       style: TextStyle(
+                          letterSpacing: 1,
                           color: kCustomBlack,
                           fontWeight: FontWeight.w400,
                           fontSize: 15.0),
                     ),
                     const SizedBox(height: 10.0),
-                    const Text(
-                      "Staffing & Recruiting . Cairo,Egypt . 200,00 employees ",
-                      style: TextStyle(
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.location_on,
                           color: Colors.grey,
-                          fontWeight: FontWeight.w300,
-                          fontSize: 13.0),
+                        ),
+                        Text(
+                         widget.jobLocation,
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15.0),
+                        ),
+                      ],
                     ),
 
                     ///=========================================================
@@ -244,18 +253,18 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
                         indicatorColor: kBasicColor,
                         labelColor: kBasicColor,
                         tabs: const [
-                          Tab(text: 'Home'),
                           Tab(text: 'About'),
-                          Tab(text: 'Jobs'),
+                          Tab(text: 'Experience'),
+                          Tab(text: 'Education'),
                         ]),
 
                     SizedBox(
                       width: SizeConfig.screenWidth,
                       height: getProportionateScreenHeight(300),
                       child: TabBarView(controller: _tabController, children: [
+                        TabAboutUserScreen(),
                         TabHomeCompanyScreen(),
-                        const TabAboutCompanyScreen(),
-                        const TabJobsCompanyScreen()
+                        TabJobsCompanyScreen()
                       ]),
                     ),
                   ],
@@ -268,15 +277,3 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
     );
   }
 }
-// IconButton(
-//     onPressed: () {
-//
-//       pickImage2();
-//       debugPrint(
-//           '==========test profile photo================');
-//     },
-//     icon: const Icon(
-//       Icons.add,
-//       color: kBasicColor,
-//       size: 15,
-//     )),

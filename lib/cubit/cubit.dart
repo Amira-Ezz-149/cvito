@@ -188,5 +188,26 @@ class CVCubit extends Cubit<CVStates> {
   }
 
 
+  ///=============================================================================
+/// job applicant names
+  List<String> jobsNames = [
+    "Web Designer",
+    "Flutter Developer",
+    "Backend Developer ",
+    "Android Developer",
+    "FullStack Developer",
+
+  ];
+
+  List<String> jobLocations = [
+    "Cairo-Cairo-Egypt",
+    "Giza Cairo-Egypt",
+    "Nasr City Cairo-Egypt",
+    "Maady Cairo-Egypt",
+    "Mansoura Cairo-Egypt",
+
+
+  ];
+
 
 }

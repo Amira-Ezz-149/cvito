@@ -7,10 +7,11 @@ import 'package:cvito/layout/modules/related_module/related_screen.dart';
 import 'package:cvito/layout/modules/sleek_slider.dart';
 import 'package:cvito/layout/modules/software_company_module/software_company_screen.dart';
 import 'package:cvito/layout/modules/splash_screen_module/splash_screen.dart';
+import 'package:cvito/layout/modules/user_profile_module/user_profile_screen.dart';
 import 'package:cvito/layout/modules/welcome_module/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cvito/layout/modules/performance_screen.dart';
-
+import 'package:flutter/services.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
   ///update
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
