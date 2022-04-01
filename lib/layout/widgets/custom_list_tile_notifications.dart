@@ -12,14 +12,14 @@ class CustomListTileNotifications extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 5, 16, 5),
       decoration: BoxDecoration(
-          boxShadow: const [
+          boxShadow:  [
             BoxShadow(
-              color: Colors.grey,
-              offset: Offset(0, 5), //(x,y)
+              color: Colors.grey.shade400,
+              offset: const Offset(0, 5), //(x,y)
               blurRadius: 5,
             ),
           ],
-          color: Colors.grey.shade200,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(5.0),
           border: Border.all(color: Colors.grey.shade200)),
       child: ListTile(

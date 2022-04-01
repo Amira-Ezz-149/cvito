@@ -7,3 +7,4 @@ class CVNotificationsState extends CVStates{}
 class CVMessagesState extends CVStates{}
 class CVEmailLaunch extends CVStates{}
 class CVRatingUpdate extends CVStates{}
+class CVUserBottomNavState extends CVStates{}

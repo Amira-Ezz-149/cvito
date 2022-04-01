@@ -50,7 +50,7 @@ class _SoftwareCompanyScreenState extends State<SoftwareCompanyScreen>
             children: [
               ///===========================================================
               /// profile cover
-              Container(
+              SizedBox(
                 // color: Colors.black,
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Stack(

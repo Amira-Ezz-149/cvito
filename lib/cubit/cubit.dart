@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/cubit/states.dart';
+import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_experience_user_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +11,10 @@ import '../layout/modules/home_screen_module/home_screen.dart';
 import '../layout/modules/messages_module/messages_screen.dart';
 import '../layout/modules/notifications_module/notifications_screen.dart';
 import '../layout/modules/related_module/related_screen.dart';
+import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
+import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_messages_screen_module/user_messages_screen.dart';
+import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_notification_screen_module/user_notification_screen.dart';
+import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_related_screen_module/user_related_screen.dart';
 
 class CVCubit extends Cubit<CVStates> {
   CVCubit() : super(InitialState());
@@ -73,7 +78,6 @@ class CVCubit extends Cubit<CVStates> {
       "image": "assets/images/rafikti.png"
     },
 
-
     ///=========================================================================
     ///Create a manual CV  ....rafikti image
 
@@ -88,7 +92,7 @@ class CVCubit extends Cubit<CVStates> {
   ///======================================================================================================================
   ///bottom navigation bar items
 
-   int currentBottomIndex = 0;
+  int currentBottomIndex = 0;
 
   List screens = [
     HomeScreen(),
@@ -169,34 +173,31 @@ class CVCubit extends Cubit<CVStates> {
   }
 
   ///===========================================================================
-/// TabHomeScreen
+  /// TabHomeScreen
   _launchEmail() async {
-    launch(
-        "mailto:miraezz14@gmail.com");
+    launch("mailto:miraezz14@gmail.com");
   }
 
-  setLaunch(){
+  setLaunch() {
     _launchEmail();
     emit(CVEmailLaunch());
   }
 
   double rating = 0;
 
-  void ratingUpdate(double rating){
+  void ratingUpdate(double rating) {
     this.rating = rating;
     emit(CVRatingUpdate());
   }
 
-
   ///=============================================================================
-/// job applicant names
+  /// job applicant names
   List<String> jobsNames = [
     "Web Designer",
     "Flutter Developer",
     "Backend Developer ",
     "Android Developer",
     "FullStack Developer",
-
   ];
 
   List<String> jobLocations = [
@@ -205,9 +206,115 @@ class CVCubit extends Cubit<CVStates> {
     "Nasr City Cairo-Egypt",
     "Maady Cairo-Egypt",
     "Mansoura Cairo-Egypt",
+  ];
 
+  ///=================================================================================
+  /// user screen (experience section)
+  List<TimelineModel> userExperienceList = const [
+    TimelineModel(
+      id: "1",
+      title: "2020-2022",
+      description: "software development company",
+      location: 'giza - egypt',
+      hh: 'android developer ',
+      lineColor: Colors.black,
+      // descriptionColor: Colors.green,
+      titleColor: Colors.green,
+    ),
+    TimelineModel(
+      id: "2",
+      title: "2018-2020",
+      description: "eltawfeq  company",
+      location: 'giza - egypt',
+      hh: 'android developer ',
+      lineColor: Colors.black,
+      // descriptionColor: Colors.red,
+      titleColor: Colors.indigo,
+    ),
+    TimelineModel(
+      id: "3",
+      title: "2015-2018",
+      description: "software development company",
+      location: 'giza - egypt',
+      hh: 'android developer ',
+      lineColor: Colors.black,
+      // descriptionColor: Colors.green,
+      titleColor: Colors.green,
+    )
+  ];
+
+
+  List<TimelineModel> userEducationList = const [
+    TimelineModel(
+      id: "3",
+      title: "2020-2022f",
+      description: "software development companyf",
+      location: 'giza - egyptf',
+      hh: 'android developerf ',
+      lineColor: Colors.black,
+      // descriptionColor: Colors.green,
+      titleColor: Colors.green,
+    ),
+    TimelineModel(
+      id: "4",
+      title: "2018-2020f",
+      description: "eltawfeq  companyf",
+      location: 'giza - egyptf',
+      hh: 'android developerf ',
+      lineColor: Colors.black,
+      // descriptionColor: Colors.red,
+      titleColor: Colors.indigo,
+    ),
 
   ];
 
+  ///===================================================================================================================
+  ///===================================================================================================================
+  ///===================================================================================================================
+/// User Layout
+
+  List userscreens = [
+    UserHomeScreen(),
+    UserNotificationsScreen(),
+    UserMessagesScreen(),
+    UserRelatedScreen(),
+  ];
+
+  List<String> UserChatUsers = [
+    "Amit",
+    "Brem",
+    "Amer ",
+    "Akshat",
+    "Brain",
+    "John",
+    "Danish",
+    "Sam",
+  ];
+
+  int userCurrentBottomIndex = 0;
+
+  void userChangeBottomNavBarIndex(int index) {
+    userCurrentBottomIndex = index;
+    emit(CVBottomNavState());
+  }
+
+  List<BottomNavigationBarItem> UserBottomItems = const [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.home),
+      label: 'Home',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.notifications_active_sharp),
+      label: 'Notifications',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.message),
+      label: 'Messages',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.group),
+      label: 'Related',
+    ),
+  ];
 
 }

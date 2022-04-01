@@ -29,6 +29,7 @@ class SecondaryCustomButton extends StatelessWidget {
               text!,
               style: const TextStyle(
                 color: kBasicColor,
+                fontWeight: FontWeight.w600,
                 fontSize: 15,
               ),
             ),

@@ -50,6 +50,7 @@ dependencies:
   readmore: ^2.1.0
   url_launcher: ^6.0.20
   flutter_rating_bar: ^4.0.0
+  timeline_tile: ^2.0.0
 
 
 
@@ -92,6 +93,15 @@ flutter:
     - assets/images/linkedIn_logo.png
     - assets/images/grammer_chaeck.png
     - assets/images/company_background.png
+    - assets/images/company.png
+    - assets/images/meeting.jpeg
+    - assets/images/create job winning.png
+    - assets/images/create_your_cv.png
+    - assets/images/edit_your_extend_cv.png
+    - assets/images/requirements.png
+    - assets/images/job_applicants.png
+    - assets/images/search.png
+    - assets/images/technical_or_general.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

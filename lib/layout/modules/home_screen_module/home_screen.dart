@@ -72,9 +72,9 @@ class HomeScreen extends StatelessWidget {
                 ///cards
                 Row(
                   children: [
-                    const CustomCard(imageLink: 'assets/images/card1.png'),
+                     CustomCard(imageLink: 'assets/images/card1.png'),
                     SizedBox(width: MediaQuery.of(context).size.width / 20),
-                    const CustomCard(imageLink: 'assets/images/card1.png')
+                     CustomCard(imageLink: 'assets/images/requirements.png')
                   ],
                 ),
 
@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                    padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
                     width: SizeConfig.screenWidth,
                     child: Row(mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -97,12 +97,12 @@ class HomeScreen extends StatelessWidget {
                             SizedBox(height:5.0 ,),
                             Text(
                               "See your job applicants here! \nApplicants CVs Matched With Your Job.",
-                              style: TextStyle(color: kCustomBlack, fontWeight: FontWeight.w400),
+                              style: TextStyle(color: kCustomBlack, fontWeight: FontWeight.w400, fontSize: 11.0),
                             ),
                           ],
                         ),
-                      SizedBox(width: getProportionateScreenWidth(10),),
-                        Expanded(child: Image(image: AssetImage('assets/images/business.png',),  height: 70,))
+                        SizedBox(width: getProportionateScreenWidth(10),),
+                        Expanded(child: Image(image: AssetImage('assets/images/job_applicants.png',),))
                       ],
                     ),
                     decoration: BoxDecoration(

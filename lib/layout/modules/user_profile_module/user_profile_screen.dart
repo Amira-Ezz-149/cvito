@@ -4,11 +4,14 @@ import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_home_company_screen.dart';
 import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_jobs_company_screen.dart';
 import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_about_user_screen.dart';
+import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_experience_user_screen.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/transparent_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+
+import 'tab_bar_user_profile_screens_modules/tab_education_user_screen.dart';
 
 /// for multi provider TickerProviderStateMixin
 /// for single provider SingleTickerProviderStateMixin
@@ -263,8 +266,9 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                       height: getProportionateScreenHeight(300),
                       child: TabBarView(controller: _tabController, children: [
                         TabAboutUserScreen(),
-                        TabHomeCompanyScreen(),
-                        TabJobsCompanyScreen()
+                        TabExperienceUserScreen(),
+                        TabExperienceUserScreen(),
+                        // TabEducationUserScreen()
                       ]),
                     ),
                   ],

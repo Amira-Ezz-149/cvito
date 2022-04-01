@@ -7,11 +7,19 @@ import 'package:cvito/layout/modules/related_module/related_screen.dart';
 import 'package:cvito/layout/modules/sleek_slider.dart';
 import 'package:cvito/layout/modules/software_company_module/software_company_screen.dart';
 import 'package:cvito/layout/modules/splash_screen_module/splash_screen.dart';
+import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_experience_user_screen.dart';
 import 'package:cvito/layout/modules/user_profile_module/user_profile_screen.dart';
 import 'package:cvito/layout/modules/welcome_module/welcome_screen.dart';
+import 'package:cvito/user/user_layout/user_layout.dart';
+import 'package:cvito/user/user_layout/user_modules/user_create_cv_module/user_create_cv_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cvito/layout/modules/performance_screen.dart';
 import 'package:flutter/services.dart';
+
+import 'layout/modules/job_details_screen.dart';
+import 'user/user_layout/user_modules/user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
+import 'user/user_layout/user_modules/user_bottom_navigation_bar_module/user_messages_screen_module/user_messages_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -39,8 +47,8 @@ class MyApp extends StatelessWidget {
       //   // HomeScreen.id: (context) => HomeScreen(),
       // },
       // initialRoute: SplashScreen.id,
-      // home: WelcomeScreen(),
-      home:SplashScreen(),
+       home: SplashScreen(),
+
 
       //  home: DrawHalfCircle(),
     );
