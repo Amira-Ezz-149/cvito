@@ -4,7 +4,7 @@ import 'package:cvito/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TabExperienceUserScreen extends StatelessWidget {
+class UserTabEducationUserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -15,7 +15,7 @@ class TabExperienceUserScreen extends StatelessWidget {
           var cubit = CVCubit();
           return Scaffold(
               body: TimelineComponent(
-            timelineList: cubit.userExperienceList,
+            timelineList: cubit.userEducationList,
             backgroundColor: Colors.white,
             // headingColor: Colors.green,
           ));
@@ -64,16 +64,13 @@ class TimelineComponentState extends State<TimelineComponent>
         itemCount: widget.timelineList.length,
         itemBuilder: (_, index) {
           return TimelineElement(
-              lineColor: widget.timelineList[index].lineColor ??
-                  Theme.of(context).accentColor,
-              backgroundColor: widget.backgroundColor ?? Colors.white,
-              model: widget.timelineList[index],
-              firstElement: index == 0,
-              lastElement: widget.timelineList.length == index + 1,
-              controller: controller!,
-              // headingColor: widget.timelineList[index].titleColor,
-              // descriptionColor: widget.timelineList[index].descriptionColor
-
+            lineColor: widget.timelineList[index].lineColor ??
+                Theme.of(context).accentColor,
+            backgroundColor: widget.backgroundColor ?? Colors.white,
+            model: widget.timelineList[index],
+            firstElement: index == 0,
+            lastElement: widget.timelineList.length == index + 1,
+            controller: controller!,
           );
         });
   }

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../constants/time_line_class.dart';
 import '../layout/modules/home_screen_module/home_screen.dart';
 import '../layout/modules/messages_module/messages_screen.dart';
 import '../layout/modules/notifications_module/notifications_screen.dart';

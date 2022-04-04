@@ -1,33 +1,30 @@
 import 'dart:io';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/modules/home_screen_module/home_screen.dart';
-import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_home_company_screen.dart';
-import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_jobs_company_screen.dart';
-import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_about_user_screen.dart';
-import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_experience_user_screen.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/transparent_icon.dart';
+import 'package:cvito/user/user_layout/user_modules/user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-
-import 'tab_bar_user_profile_screens_modules/tab_education_user_screen.dart';
+import 'user_tab_bar_user_profile_screen/user_tab_about_user_screen.dart';
+import 'user_tab_bar_user_profile_screen/user_tab_education_user_screen.dart';
+import 'user_tab_bar_user_profile_screen/user_tab_experience_user_screen.dart';
 
 /// for multi provider TickerProviderStateMixin
 /// for single provider SingleTickerProviderStateMixin
 
-class UserProfileScreen extends StatefulWidget {
+class UserUserProfileScreen extends StatefulWidget {
   @override
-  State<UserProfileScreen> createState() => _UserProfileScreenState();
+  State<UserUserProfileScreen> createState() => _UserUserProfileScreenState();
   String jobTitle;
   String jobLocation;
 
-  UserProfileScreen({required this.jobTitle, required this.jobLocation});
+  UserUserProfileScreen({required this.jobTitle, required this.jobLocation});
 }
 
-class _UserProfileScreenState extends State<UserProfileScreen>
+class _UserUserProfileScreenState extends State<UserUserProfileScreen>
     with TickerProviderStateMixin {
   File? profileImage;
   File? backgroundImage;
@@ -39,7 +36,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
       final imageTemporary = File(image.path);
-     return imageTemporary;
+      return imageTemporary;
     } on PlatformException catch (e) {
       debugPrint('failed to pick image : $e');
     }
@@ -74,12 +71,12 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                           //todo imageBackground UI
                           image: backgroundImage != null
                               ? Image.file(
-                                  backgroundImage!,
-                                  height: getProportionateScreenHeight(150),
-                                  fit: BoxFit.cover,
-                                ).image
+                            backgroundImage!,
+                            height: getProportionateScreenHeight(150),
+                            fit: BoxFit.cover,
+                          ).image
                               : const AssetImage(
-                                  'assets/images/company_background.png'),
+                              'assets/images/company_background.png'),
                         ),
                       ),
                       child: Padding(
@@ -91,7 +88,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                             TransparentIcon(
                               icon: Icons.arrow_back,
                               onPressed: () {
-                                 navigateTo(context: context, widget: HomeScreen());
+                               navigateTo(context: context, widget: const UserHomeScreen());
                               },
                             ),
                             TransparentIcon(
@@ -133,12 +130,12 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                                   //todo profileImage UI
                                   child: profileImage != null
                                       ? Image.file(
-                                          profileImage!,
-                                          width: 160,
-                                          height:
-                                              getProportionateScreenHeight(170),
-                                          fit: BoxFit.cover,
-                                        )
+                                    profileImage!,
+                                    width: 160,
+                                    height:
+                                    getProportionateScreenHeight(170),
+                                    fit: BoxFit.cover,
+                                  )
                                       : const FlutterLogo(size: 100),
                                 ),
                               ],
@@ -191,16 +188,16 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                   children: [
                     ///=========================================================
                     ///company title and its description
-                     Text('Eyad Najy ',
+                   const Text('Eyad Najy ',
                       style: TextStyle(
                           color: kCustomBlack,
                           fontWeight: FontWeight.w500,
                           fontSize: 25.0),
                     ),
                     const SizedBox(height: 10.0),
-                     Text(
+                    Text(
                       widget.jobTitle,
-                      style: TextStyle(
+                      style: const TextStyle(
                           letterSpacing: 1,
                           color: kCustomBlack,
                           fontWeight: FontWeight.w400,
@@ -214,8 +211,8 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                           color: Colors.grey,
                         ),
                         Text(
-                         widget.jobLocation,
-                          style: TextStyle(
+                          widget.jobLocation,
+                          style: const TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.w300,
                               fontSize: 15.0),
@@ -267,9 +264,9 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                       width: SizeConfig.screenWidth,
                       height: getProportionateScreenHeight(300),
                       child: TabBarView(controller: _tabController, children: [
-                        TabAboutUserScreen(),
-                        TabExperienceUserScreen(),
-                        TabEducationUserScreen(),
+                        UserTabAboutUserScreen(),
+                        UserTabExperienceUserScreen(),
+                        UserTabEducationUserScreen(),
                         // TabEducationUserScreen()
                       ]),
                     ),

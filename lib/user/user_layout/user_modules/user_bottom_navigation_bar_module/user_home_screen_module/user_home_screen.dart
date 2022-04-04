@@ -3,6 +3,7 @@ import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/layout/widgets/custom_card.dart';
 import 'package:cvito/layout/widgets/default_form_field.dart';
 import 'package:cvito/user/user_layout/user_modules/user_create_cv_module/user_create_cv_screen.dart';
+import 'package:cvito/user/user_layout/user_modules/user_user_profile_screen/user_user_profile_screen.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 
@@ -17,68 +18,124 @@ class UserHomeScreen extends StatelessWidget {
     GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       drawer: Drawer(
-        child: SafeArea(
-          child: ListView(
-            children: [
-              DrawerHeader(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-
-                child:
-                Container(
-                  color: Colors.red,
-                  height: 20,
-                  width: 80,
-                  // child: Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //
-                  //   children: [
-                  //     CircleAvatar(
-                  //       radius: 25,
-                  //       child: Image.asset('assets/images/profile_photo.png'),
-                  //     ),
-                  //     Align(alignment: Alignment.centerLeft,
-                  //       child: Column(
-                  //         children: const [
-                  //           Text('Najy Eyad'),
-                  //           Text('Cairo ,Egypt'),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+        child: ListView(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              color: Colors.blue,
+              width: MediaQuery.of(context).size.width,
+              height: 150,
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children:  [
+                   InkWell(
+                    onTap: (){
+                      navigateTo(context: context, widget: UserUserProfileScreen(jobTitle: 'Web', jobLocation: 'Cairo',));
+                    },
+                    child:const  CircleAvatar(
+                      backgroundImage:
+                          AssetImage('assets/images/profile_photo.png'),
+                      backgroundColor: Colors.white,
+                      radius: 30,
+                    ),
+                  ),
+                  const SizedBox(width: 15.0,),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const[
+                      Text(
+                        'user name',
+                        style: TextStyle(fontSize: 18.0, color: Colors.white),
+                      ),
+                      Text(
+                        'username@gmail.com',
+                        style: TextStyle(fontSize: 15.0, color: Colors.white
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+             Align(
+              alignment: Alignment.center,
+              child: ListTile(
+                contentPadding: EdgeInsets.symmetric(horizontal: 15.0),
+                title: InkWell(
+                  onTap: (){
+                    navigateTo(context: context, widget: UserUserProfileScreen(jobTitle: 'Web', jobLocation: 'Cairo',));
+                  },
+                  child: const Text(
+                    'View Profile',
+                    style: TextStyle(color: kBasicColor),
+                  ),
                 ),
-                color: kBasicColor,
-              )),
-              const ListTile(
-                title: const Text('klklklkl'),
               ),
-              const Divider(),
-              const ListTile(
-                title: Text('klklklkl'),
+            ),
+            const Divider(
+              thickness: 1.0,
+              color: Colors.grey,
+              endIndent: 10.0,
+              indent: 10.0,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 20.0, horizontal: 15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomDrawerRow(
+                    labelText: 'My CVs',
+                    labelIcon: Icons.file_copy,
+                    function: () {},
+                  ),
+                  const SizedBox(height: 25.0),
+                  CustomDrawerRow(
+                    labelText: 'Certificates',
+                    labelIcon: Icons.check_box_sharp,
+                    function: () {},
+                  ),
+                  const SizedBox(height: 25.0),
+                  CustomDrawerRow(
+                    labelText: 'Saved',
+                    labelIcon: Icons.bookmark,
+                    function: () {},
+                  ),
+                ],
               ),
-              const Divider(),
-              const ListTile(
-                title: const Text('klklklkl'),
+            ),
+            const Divider(
+              thickness: 1.0,
+              color: Colors.grey,
+              endIndent: 10.0,
+              indent: 10.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 20.0, horizontal: 15.0),
+              child: CustomDrawerRow(
+                labelText: 'Help Centre',
+                labelIcon: Icons.help_outlined,
+                function: () {},
               ),
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: CustomDrawerRow(
+                  function: () {},
+                  labelIcon: Icons.logout,
+                  labelText: 'Logout'),
+            ),
+          ],
         ),
       ),
       key: _scaffoldKey,
       floatingActionButton: FloatingActionButton(
         backgroundColor: kBasicColor,
         onPressed: () {
-          showModalBottomSheet(
-              enableDrag: false,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(25),
-                ),
-              ),
-              context: context,
-              builder: (context) => buildSheet(context));
+          navigateTo(context: context, widget: const UserCreateCVScreen());
         },
         child: const Icon(
           Icons.add,
@@ -182,7 +239,8 @@ class UserHomeScreen extends StatelessWidget {
                 ///=================================================================================================
                 ///Row of        ...Recent, arrow
                 Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -207,57 +265,62 @@ class UserHomeScreen extends StatelessWidget {
                 ),
 
                 ///=================================================================================================
-                ///cvs
+                ///Recent
                 Row(
                   children: [
                     Expanded(
-                      child: Container(
-                        alignment: Alignment.topCenter,
-                        width: MediaQuery.of(context).size.width / 2,
-                        height: MediaQuery.of(context).size.height / 2,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        child: Image.asset(
-                          'assets/images/my_cv1.png',
-                          fit: BoxFit.contain,
+                      child: GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                              enableDrag: false,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(25),
+                                ),
+                              ),
+                              context: context,
+                              builder: (context) => buildSheet(context));
+                        },
+                        child: Container(
+                          alignment: Alignment.topCenter,
+                          width: MediaQuery.of(context).size.width / 2,
+                          height: MediaQuery.of(context).size.height / 2,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0)),
+                          child: Image.asset(
+                            'assets/images/my_cv1.png',
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                     ),
-
-                    const SizedBox(
-                      width: 20.0,
-                    ),
+                    const SizedBox(width: 20.0),
                     Expanded(
-                      child: Container(
-                        alignment: Alignment.topCenter,
-                        width: MediaQuery.of(context).size.width / 2,
-                        height: MediaQuery.of(context).size.height / 2,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        child: Image.asset(
-                          'assets/images/my_cv1.png',
-                          fit: BoxFit.contain,
+                      child: GestureDetector(
+                        onTap: () {
+                          showModalBottomSheet(
+                              enableDrag: false,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(25),
+                                ),
+                              ),
+                              context: context,
+                              builder: (context) => buildSheet(context));
+                        },
+                        child: Container(
+                          alignment: Alignment.topCenter,
+                          width: MediaQuery.of(context).size.width / 2,
+                          height: MediaQuery.of(context).size.height / 2,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0)),
+                          child: Image.asset(
+                            'assets/images/my_cv1.png',
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                     ),
-                    // Expanded(
-                    //   child: Container(
-                    //     padding: const EdgeInsets.all(10.0),
-                    //     width: MediaQuery
-                    //         .of(context)
-                    //         .size
-                    //         .width / 2,
-                    //     height: MediaQuery
-                    //         .of(context)
-                    //         .size
-                    //         .height / 2.7,
-                    //     decoration: BoxDecoration(
-                    //         borderRadius: BorderRadius.circular(20.0)),
-                    //     child: Image.asset(
-                    //         'assets/images/my_cv2.png', fit: BoxFit.cover),
-                    //
-                    //   ),
-                    // ),
                   ],
                 ),
               ],
@@ -303,6 +366,40 @@ class UserHomeScreen extends StatelessWidget {
           ],
         ),
       );
+}
+
+class CustomDrawerRow extends StatelessWidget {
+  VoidCallback? function;
+  String? labelText;
+  IconData? labelIcon;
+
+  CustomDrawerRow(
+      {required this.function,
+      required this.labelIcon,
+      required this.labelText});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: function,
+      child: Row(
+        children: [
+          Icon(
+            labelIcon,
+            color: Colors.grey,
+            size: 28.0,
+          ),
+          SizedBox(
+            width: 10.0,
+          ),
+          Text(
+            labelText!,
+            style: TextStyle(fontSize: 15.0),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class BottomSheetRow extends StatelessWidget {

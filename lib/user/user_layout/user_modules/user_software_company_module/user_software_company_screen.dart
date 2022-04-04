@@ -1,45 +1,38 @@
 import 'dart:io';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/modules/home_screen_module/home_screen.dart';
-import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_home_company_screen.dart';
-import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_jobs_company_screen.dart';
-import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_about_user_screen.dart';
-import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_experience_user_screen.dart';
+import 'package:cvito/layout/modules/cv_layout.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/transparent_icon.dart';
 import 'package:cvito/utilities.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'tab_bar_user_profile_screens_modules/tab_education_user_screen.dart';
+import 'user_tab_bar_company_screen/user_tab_about_company_screen.dart';
+import 'user_tab_bar_company_screen/user_tab_home_company_screen.dart';
+import 'user_tab_bar_company_screen/user_tab_jobs_company_screen.dart';
 
 /// for multi provider TickerProviderStateMixin
 /// for single provider SingleTickerProviderStateMixin
 
-class UserProfileScreen extends StatefulWidget {
+class UserSoftwareCompanyScreen extends StatefulWidget {
   @override
-  State<UserProfileScreen> createState() => _UserProfileScreenState();
-  String jobTitle;
-  String jobLocation;
-
-  UserProfileScreen({required this.jobTitle, required this.jobLocation});
+  State<UserSoftwareCompanyScreen> createState() => _UserSoftwareCompanyScreenState();
 }
 
-class _UserProfileScreenState extends State<UserProfileScreen>
+class _UserSoftwareCompanyScreenState extends State<UserSoftwareCompanyScreen>
     with TickerProviderStateMixin {
   File? profileImage;
   File? backgroundImage;
-
-
 
   Future pickImage() async {
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
       final imageTemporary = File(image.path);
-     return imageTemporary;
+      return imageTemporary;
     } on PlatformException catch (e) {
       debugPrint('failed to pick image : $e');
     }
@@ -52,7 +45,6 @@ class _UserProfileScreenState extends State<UserProfileScreen>
 
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,15 +63,15 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          //todo imageBackground UI
+                          //todo backgroundImage UI
                           image: backgroundImage != null
                               ? Image.file(
-                                  backgroundImage!,
-                                  height: getProportionateScreenHeight(150),
-                                  fit: BoxFit.cover,
-                                ).image
+                            backgroundImage!,
+                            height: getProportionateScreenHeight(150),
+                            fit: BoxFit.cover,
+                          ).image
                               : const AssetImage(
-                                  'assets/images/company_background.png'),
+                              'assets/images/company_background.png'),
                         ),
                       ),
                       child: Padding(
@@ -91,7 +83,9 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                             TransparentIcon(
                               icon: Icons.arrow_back,
                               onPressed: () {
-                                 navigateTo(context: context, widget: HomeScreen());
+                                navigateTo(
+                                    context: context,
+                                    widget: const LayoutScreen());
                               },
                             ),
                             TransparentIcon(
@@ -99,7 +93,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                               onPressed: () {
                                 //todo calling backgroundImage
                                 pickImage().then((value) {
-                                  if(value != null) debugPrint('finish');
+                                  if (value != null) debugPrint('finish');
                                   debugPrint(value.toString());
                                   setState(() {
                                     backgroundImage = value;
@@ -128,25 +122,25 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                ClipOval(
-                                  // borderRadius: BorderRadius.circular(15.0),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(15.0),
                                   //todo profileImage UI
                                   child: profileImage != null
                                       ? Image.file(
-                                          profileImage!,
-                                          width: 160,
-                                          height:
-                                              getProportionateScreenHeight(170),
-                                          fit: BoxFit.cover,
-                                        )
+                                    profileImage!,
+                                    width: 160,
+                                    height:
+                                    getProportionateScreenHeight(170),
+                                    fit: BoxFit.cover,
+                                  )
                                       : const FlutterLogo(size: 100),
                                 ),
                               ],
                             ),
                           ),
                           Positioned(
-                            right: -5,
-                            bottom: 15,
+                            right: -10,
+                            bottom: 10,
                             // alignment: Alignment.bottomRight,
                             child: GestureDetector(
                               // behavior: HitTestBehavior.translucent,
@@ -154,12 +148,12 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                                 //todo calling profileImage
                                 debugPrint('onClick');
                                 pickImage().then((value) {
-                                  if(value != null) debugPrint('finish');
+                                  if (value != null) debugPrint('finish');
                                   debugPrint(value.toString());
                                   setState(() {
                                     profileImage = value;
                                   });
-                                } );
+                                });
                               },
                               child: const CircleAvatar(
                                 child: Icon(
@@ -180,10 +174,10 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                   ],
                 ),
               ),
-              SizedBox(height: getProportionateScreenHeight(20.0)),
 
               ///===============================================================================================
               ///screen content
+              SizedBox(height: getProportionateScreenHeight(20.0)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
@@ -191,36 +185,28 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                   children: [
                     ///=========================================================
                     ///company title and its description
-                     Text('Eyad Najy ',
+                    const Text(
+                      "Software Company",
                       style: TextStyle(
                           color: kCustomBlack,
                           fontWeight: FontWeight.w500,
                           fontSize: 25.0),
                     ),
                     const SizedBox(height: 10.0),
-                     Text(
-                      widget.jobTitle,
+                    const Text(
+                      "Egypt software company building mobile applications ",
                       style: TextStyle(
-                          letterSpacing: 1,
                           color: kCustomBlack,
                           fontWeight: FontWeight.w400,
                           fontSize: 15.0),
                     ),
                     const SizedBox(height: 10.0),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
+                    const Text(
+                      "Staffing & Recruiting . Cairo,Egypt . 200,00 employees ",
+                      style: TextStyle(
                           color: Colors.grey,
-                        ),
-                        Text(
-                         widget.jobLocation,
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w300,
-                              fontSize: 15.0),
-                        ),
-                      ],
+                          fontWeight: FontWeight.w300,
+                          fontSize: 13.0),
                     ),
 
                     ///=========================================================
@@ -258,19 +244,18 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                         indicatorColor: kBasicColor,
                         labelColor: kBasicColor,
                         tabs: const [
+                          Tab(text: 'Home'),
                           Tab(text: 'About'),
-                          Tab(text: 'Experience'),
-                          Tab(text: 'Education'),
+                          Tab(text: 'Jobs'),
                         ]),
 
                     SizedBox(
                       width: SizeConfig.screenWidth,
                       height: getProportionateScreenHeight(300),
                       child: TabBarView(controller: _tabController, children: [
-                        TabAboutUserScreen(),
-                        TabExperienceUserScreen(),
-                        TabEducationUserScreen(),
-                        // TabEducationUserScreen()
+                        UserTabHomeCompanyScreen(),
+                        const UserTabAboutCompanyScreen(),
+                        const UserTabJobsCompanyScreen()
                       ]),
                     ),
                   ],

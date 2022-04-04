@@ -1,4 +1,5 @@
 import 'package:cvito/layout/modules/cv_layout.dart';
+import 'package:cvito/layout/modules/get_started_module/get_started_screen.dart';
 import 'package:cvito/layout/modules/home_screen_module/home_screen.dart';
 import 'package:cvito/layout/modules/messages_module/messages_screen.dart';
 import 'package:cvito/layout/modules/notifications_module/notifications_screen.dart';

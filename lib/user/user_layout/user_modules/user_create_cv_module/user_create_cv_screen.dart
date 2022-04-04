@@ -56,23 +56,9 @@ class UserCreateCVScreen extends StatelessWidget {
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       children: [
-                        InkWell(
-                          child: Image.asset(
-                              'assets/images/technical_or_general.png'),
-                          onTap: () {
-                            showModalBottomSheet(
-                                // enableDrag: false,
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(25),
-                                  ),
-                                ),
-                                context: context,
-                                builder: (context) => buildSheet(context));
-                          },
-                        ),
-                        Image.asset('assets/images/medical_field.png'),
-                        Image.asset('assets/images/graphic_design.png'),
+                        CustomCardField(imageLink:'assets/images/technical_or_general.png'),
+                        CustomCardField(imageLink:'assets/images/medical_field.png'),
+                        CustomCardField(imageLink:'assets/images/graphic_design.png'),
                       ],
                     )),
                const SizedBox(height: 20.0,),
@@ -118,54 +104,86 @@ class UserCreateCVScreen extends StatelessWidget {
     );
   }
 
-  Widget buildSheet(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        height: MediaQuery.of(context).size.height / 2,
-        child: SingleChildScrollView(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                  child: Container(
-                width: 100.0,
-                height: 7.0,
-                decoration: BoxDecoration(
-                    color: kCustomBlack,
-                    borderRadius: BorderRadius.circular(10.0)),
-              )),
-              const SizedBox(height: 20.0),
-              const Text('Opened Categories',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18.0,
-                      color: kCustomBlack)),
-              const SizedBox(height: 20.0),
-              Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width / 2,
-                      child: Image.asset(
-                        'assets/images/professional.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 20.0),
-                  Expanded(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width / 2,
-                      child: Image.asset(
-                        'assets/images/modern.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      );
 }
+
+class BuildSheet extends StatelessWidget {
+  const BuildSheet({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+      height: MediaQuery.of(context).size.height / 2,
+      child: SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+                child: Container(
+                  width: 100.0,
+                  height: 7.0,
+                  decoration: BoxDecoration(
+                      color: kCustomBlack,
+                      borderRadius: BorderRadius.circular(10.0)),
+                )),
+            const SizedBox(height: 20.0),
+            const Text('Opened Categories',
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18.0,
+                    color: kCustomBlack)),
+            const SizedBox(height: 20.0),
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Image.asset(
+                      'assets/images/professional.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20.0),
+                Expanded(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Image.asset(
+                      'assets/images/modern.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+class CustomCardField extends StatelessWidget {
+
+  String? imageLink;
+  CustomCardField({required this.imageLink});
+  @override
+  Widget build(BuildContext context) {
+    return  InkWell(
+      child: Image.asset(imageLink!),
+      onTap: () {
+        showModalBottomSheet(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(25),
+              ),
+            ),
+            context: context,
+            builder: (context) => BuildSheet());
+      },
+    );
+  }
+}
+

@@ -1,12 +1,10 @@
-import 'package:cvito/layout/modules/job_details_screen.dart';
-import 'package:cvito/utilities.dart';
+import 'package:cvito/layout/widgets/edit_row.dart';
 import 'package:flutter/material.dart';
 import 'package:cvito/constants/constants.dart';
 
-import '../../../widgets/edit_row.dart';
 
-class TabJobsCompanyScreen extends StatelessWidget {
-  const TabJobsCompanyScreen({Key? key}) : super(key: key);
+class UserTabJobsCompanyScreen extends StatelessWidget {
+  const UserTabJobsCompanyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,7 @@ class TabJobsCompanyScreen extends StatelessWidget {
           children: [
 
             EditRow(label: 'Opening Jobs', icon: Icons.edit, ),
-           const SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
@@ -25,9 +23,7 @@ class TabJobsCompanyScreen extends StatelessWidget {
                 itemCount:5,
                 itemBuilder: (context, index) {
                   return  ListTile(
-                    trailing: IconButton(icon: Icon(Icons.more_vert), onPressed: (){
-                      navigateTo(context: context, widget: JobDetailsScreen());
-                    },),
+                    trailing: const Icon(Icons.edit),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7),
                       side: const BorderSide(
