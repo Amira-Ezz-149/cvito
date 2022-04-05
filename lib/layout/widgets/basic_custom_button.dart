@@ -9,36 +9,19 @@ class BasicCustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: function,
-      child: FittedBox(
-        child: Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            border: Border.all(color: kBasicColor),
-            color: kBasicColor,
-            // boxShadow: const [
-            //   BoxShadow(
-            //     color: Colors.grey,
-            //     offset: Offset(0, 3), //(x,y)
-            //     blurRadius: 5,
-            //   ),
-            // ],
-            borderRadius: BorderRadius.circular(50.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 40),
-            child: Text(
-              text!,
-              style: const TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Color(0xffffffff),
-                fontSize: 15,
-              ),
-            ),
-          ),
-        ),
+    return ElevatedButton(
+      child: Text(text!),
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+        onPrimary: Colors.white,
+        primary: kBasicColor,
+        onSurface: Colors.grey,
+        side: BorderSide(color: kBasicColor, width: 1),
+
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30)),
       ),
+      onPressed: function,
     );
   }
 }

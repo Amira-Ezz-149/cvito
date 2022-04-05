@@ -77,6 +77,49 @@ class UserTabAboutUserScreen extends StatelessWidget {
                           fontSize: 20.0,
                           fontWeight: FontWeight.w500),
                     ),
+
+                    const SizedBox(height: 15.0,),
+
+
+
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              alignment: Alignment.topCenter,
+                              // width: MediaQuery.of(context).size.width / 2,
+                              height: MediaQuery.of(context).size.height / 3.5,
+                              decoration: BoxDecoration(color: kBasicColor.withOpacity(.5),
+                                 ),
+                              child:   Image.asset('assets/images/cvs1.png', fit: BoxFit.cover,)
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10.0),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              alignment: Alignment.topCenter,
+                              // width: MediaQuery.of(context).size.width / 2,
+                              height: MediaQuery.of(context).size.height / 3.5,
+                              decoration: BoxDecoration(color: kBasicColor.withOpacity(.5),
+                               ),
+                              child: Image.asset(
+                                'assets/images/cvs2.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: 20.0,),
+
                   ],
                 ),
               );

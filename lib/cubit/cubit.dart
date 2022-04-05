@@ -1,21 +1,18 @@
 import 'package:bloc/bloc.dart';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/cubit/states.dart';
-import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_experience_user_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../constants/time_line_class.dart';
 import '../layout/modules/home_screen_module/home_screen.dart';
 import '../layout/modules/messages_module/messages_screen.dart';
 import '../layout/modules/notifications_module/notifications_screen.dart';
 import '../layout/modules/related_module/related_screen.dart';
 import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
+import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_jobs_screen_module/user_jobs_screen.dart';
 import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_messages_screen_module/user_messages_screen.dart';
 import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_notification_screen_module/user_notification_screen.dart';
-import '../user/user_layout/user_modules/user_bottom_navigation_bar_module/user_related_screen_module/user_related_screen.dart';
 
 class CVCubit extends Cubit<CVStates> {
   CVCubit() : super(InitialState());
@@ -96,10 +93,10 @@ class CVCubit extends Cubit<CVStates> {
   int currentBottomIndex = 0;
 
   List screens = [
-    HomeScreen(),
-    NotificationsScreen(),
+    const HomeScreen(),
+    const NotificationsScreen(),
     MessagesScreen(),
-    RelatedScreen(),
+    const RelatedScreen(),
   ];
 
   void changeBottomNavBarIndex(int index) {
@@ -275,10 +272,10 @@ class CVCubit extends Cubit<CVStates> {
 /// User Layout
 
   List userscreens = [
-    UserHomeScreen(),
-    UserNotificationsScreen(),
+    const UserHomeScreen(),
+    const UserNotificationsScreen(),
     UserMessagesScreen(),
-    UserRelatedScreen(),
+    UserJobsScreen(),
   ];
 
   List<String> UserChatUsers = [
@@ -313,9 +310,26 @@ class CVCubit extends Cubit<CVStates> {
       label: 'Messages',
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.group),
-      label: 'Related',
+      icon: Icon(Icons.work_outlined),
+      label: 'Jobs',
     ),
   ];
+
+  ///==========================================================================
+/// userJobsScreen
+  List<String> userJobRecommendationList = [
+    "Web Designer",
+    "Flutter Developer",
+    "FullStack Developer",
+  ];
+
+
+  List<String> userJobsLocationList = [
+    "Cairo - Egypt",
+    "Jeddah - Saudi Arabia",
+    "Berlin - German",
+  ];
+
+
 
 }

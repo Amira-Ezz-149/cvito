@@ -22,7 +22,7 @@ class UserHomeScreen extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(10.0),
-              color: Colors.blue,
+              color: kBasicColor,
               width: MediaQuery.of(context).size.width,
               height: 150,
               child: Row(
@@ -51,7 +51,7 @@ class UserHomeScreen extends StatelessWidget {
                       ),
                       Text(
                         'username@gmail.com',
-                        style: TextStyle(fontSize: 15.0, color: Colors.white
+                        style: TextStyle(fontSize: 15.0, color: Colors.white70
                         ),
                       ),
                     ],
@@ -62,10 +62,10 @@ class UserHomeScreen extends StatelessWidget {
              Align(
               alignment: Alignment.center,
               child: ListTile(
-                contentPadding: EdgeInsets.symmetric(horizontal: 15.0),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
                 title: InkWell(
                   onTap: (){
-                    navigateTo(context: context, widget: UserUserProfileScreen(jobTitle: 'Web', jobLocation: 'Cairo',));
+                    navigateTo(context: context, widget: UserUserProfileScreen(jobTitle: 'Web Development', jobLocation: 'Cairo - Egypt',));
                   },
                   child: const Text(
                     'View Profile',

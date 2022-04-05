@@ -3,7 +3,7 @@ import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/transparent_icon.dart';
-import 'package:cvito/user/user_layout/user_modules/user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
+import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -88,7 +88,7 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                             TransparentIcon(
                               icon: Icons.arrow_back,
                               onPressed: () {
-                               navigateTo(context: context, widget: const UserHomeScreen());
+                               navigateTo(context: context, widget: const UserLayoutScreen());
                               },
                             ),
                             TransparentIcon(
@@ -144,9 +144,7 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                           Positioned(
                             right: -5,
                             bottom: 15,
-                            // alignment: Alignment.bottomRight,
                             child: GestureDetector(
-                              // behavior: HitTestBehavior.translucent,
                               onTap: () {
                                 //todo calling profileImage
                                 debugPrint('onClick');

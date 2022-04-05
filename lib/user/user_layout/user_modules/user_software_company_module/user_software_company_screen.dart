@@ -1,15 +1,11 @@
 import 'dart:io';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/modules/cv_layout.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/transparent_icon.dart';
-import 'package:cvito/utilities.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'user_tab_bar_company_screen/user_tab_about_company_screen.dart';
 import 'user_tab_bar_company_screen/user_tab_home_company_screen.dart';
 import 'user_tab_bar_company_screen/user_tab_jobs_company_screen.dart';
@@ -83,9 +79,7 @@ class _UserSoftwareCompanyScreenState extends State<UserSoftwareCompanyScreen>
                             TransparentIcon(
                               icon: Icons.arrow_back,
                               onPressed: () {
-                                navigateTo(
-                                    context: context,
-                                    widget: const LayoutScreen());
+                               Navigator.pop(context);
                               },
                             ),
                             TransparentIcon(
