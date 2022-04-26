@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/cubit/cubit.dart';

@@ -2,7 +2,7 @@ import 'package:cvito/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class BasicCustomButton extends StatelessWidget {
-  BasicCustomButton({@required this.text, @required this.function});
+  const BasicCustomButton({@required this.text, @required this.function});
 
   final String? text;
   final VoidCallback? function;
@@ -16,7 +16,7 @@ class BasicCustomButton extends StatelessWidget {
         onPrimary: Colors.white,
         primary: kBasicColor,
         onSurface: Colors.grey,
-        side: BorderSide(color: kBasicColor, width: 1),
+        side: const BorderSide(color: kBasicColor, width: 1),
 
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)),

@@ -4,7 +4,7 @@ import 'package:cvito/layout/widgets/country_label_performance.dart';
 import 'package:flutter/material.dart';
 
 class CountryContainer extends StatelessWidget {
-  CountryContainer({
+  const CountryContainer({
     required this.height,
     required this.title,
     required this.label1,

@@ -51,6 +51,11 @@ dependencies:
   url_launcher: ^6.0.20
   flutter_rating_bar: ^4.0.0
   timeline_tile: ^2.0.0
+  shared_preferences: ^2.0.13
+  #firebase_storage: ^10.2.9
+  #firebase_core: ^1.13.1
+  #flutter_pdfview: ^1.2.2
+  #http: ^0.13.4
 
 
 

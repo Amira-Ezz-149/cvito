@@ -143,13 +143,13 @@ class TabAboutCompanyScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                     Text(
+                                     const Text(
                                       'Cairo, cairo, Zamalek',
                                       style: TextStyle(color: kCustomBlack),
                                     ),
-                                    SizedBox(height: 5.0,),
+                                    const SizedBox(height: 5.0,),
                                     Row(
-                                      children: [
+                                      children: const [
                                         Expanded(
                                           child: Text(
                                             'GET DIRECTIONS',

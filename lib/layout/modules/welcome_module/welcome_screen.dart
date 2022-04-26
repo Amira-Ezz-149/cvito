@@ -76,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                                 text: 'Start',
                                 function: () {
                                   navigateTo(
-                                      context: context, widget: GetStartedScreen());
+                                      context: context, widget: const GetStartedScreen());
                                 }),
                           ),
                           const Spacer()

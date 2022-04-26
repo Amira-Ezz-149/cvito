@@ -3,7 +3,6 @@ import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/secondary_custom_button.dart';
 import 'package:cvito/utilities.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'software_company_module/software_company_screen.dart';

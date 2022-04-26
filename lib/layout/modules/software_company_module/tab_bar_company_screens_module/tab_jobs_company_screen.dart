@@ -25,7 +25,7 @@ class TabJobsCompanyScreen extends StatelessWidget {
                 itemCount:5,
                 itemBuilder: (context, index) {
                   return  ListTile(
-                    trailing: IconButton(icon: Icon(Icons.more_vert), onPressed: (){
+                    trailing: IconButton(icon: const Icon(Icons.more_vert), onPressed: (){
                       navigateTo(context: context, widget: JobDetailsScreen());
                     },),
                     shape: RoundedRectangleBorder(

@@ -4,7 +4,6 @@ import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 
-import '../user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
 
 class UserCreateCVScreen extends StatelessWidget {
   const UserCreateCVScreen({Key? key}) : super(key: key);
@@ -71,29 +70,33 @@ class UserCreateCVScreen extends StatelessWidget {
 
                 ///======================================================================================
                 ///CVs
-                Container(
-                  height: getProportionateScreenHeight(290),
-                  padding: EdgeInsets.only(right: 20.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width / 2,
-                          child: Image.asset('assets/images/automated.png',
-                              fit: BoxFit.cover),
-                        ),
-                      ),
-                      const SizedBox(width: 20.0),
-                      Expanded(
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width / 2,
-                          child: Image.asset(
-                            'assets/images/manual.png',
-                            fit: BoxFit.cover,
+                Padding(
+                  //todo create your cv important to fix
+                  padding:  const EdgeInsets.only(right:20.0),
+                  child: Container(
+                    height: getProportionateScreenHeight(290),
+                    padding: const EdgeInsets.only(right: 20.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width / 2,
+                            child: Image.asset('assets/images/automated.png',
+                                fit: BoxFit.cover),
                           ),
                         ),
-                      ),
-                    ],
+                         SizedBox(width: getProportionateScreenWidth(15.0)),
+                        Expanded(
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width / 2,
+                            child: Image.asset(
+                              'assets/images/manual.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -181,7 +184,7 @@ class CustomCardField extends StatelessWidget {
               ),
             ),
             context: context,
-            builder: (context) => BuildSheet());
+            builder: (context) => const BuildSheet());
       },
     );
   }

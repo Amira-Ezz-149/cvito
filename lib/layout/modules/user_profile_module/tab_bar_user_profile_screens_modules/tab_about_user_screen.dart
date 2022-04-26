@@ -1,18 +1,24 @@
-import 'dart:ui';
+
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/cubit/cubit.dart';
 import 'package:cvito/cubit/states.dart';
 import 'package:cvito/layout/widgets/edit_row.dart';
 import 'package:cvito/layout/widgets/see_more_see_less.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TabAboutUserScreen extends StatelessWidget {
+class TabAboutUserScreen extends StatefulWidget {
+  @override
+  State<TabAboutUserScreen> createState() => _TabAboutUserScreenState();
+}
 
+class _TabAboutUserScreenState extends State<TabAboutUserScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     SizeConfig().init(context);
     return Scaffold(
       body: SingleChildScrollView(
@@ -24,7 +30,7 @@ class TabAboutUserScreen extends StatelessWidget {
             builder: (context, state) {
               CVCubit cubit = CVCubit.get(context);
               return Padding(
-                padding: const EdgeInsets.only(right:15.0),
+                padding: const EdgeInsets.only(right:10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -75,6 +81,43 @@ class TabAboutUserScreen extends StatelessWidget {
                     /// jobs sections
                     SizedBox(height: getProportionateScreenHeight(30.0)),
                    const Text('CVs', style: TextStyle(color: kCustomBlack, fontSize: 20.0, fontWeight: FontWeight.w500),),
+                    const SizedBox(height: 15.0,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0, bottom: 20.0),
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () async{
+
+
+                            },
+                            child: Expanded(
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Image.asset('assets/images/android_cv.png',
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: getProportionateScreenWidth(30.0)),
+                          InkWell(
+                            onTap: () async{
+
+
+                            },
+                            child: Expanded(
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Image.asset(
+                                  'assets/images/ui_ux_cv.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
 
 
                   ],
@@ -86,40 +129,5 @@ class TabAboutUserScreen extends StatelessWidget {
       ),
     );
   }
-
 }
 
-
-//
-// ///=============================================================================
-// ///edit row which has label and edit icon
-// class EditRow extends StatelessWidget {
-//   IconData icon;
-//   String label;
-//
-//   EditRow({required this.icon, required this.label});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       children: [
-//         Text(
-//           label,
-//           style: const TextStyle(
-//               color: kCustomBlack,
-//               fontSize: 18.0,
-//               decorationColor: kCustomBlack,
-//               fontWeight: FontWeight.w400),
-//         ),
-//         const Spacer(),
-//         IconButton(
-//           onPressed: () {},
-//           icon: Icon(
-//             icon,
-//             color: kCustomBlack,
-//           ),
-//         )
-//       ],
-//     );
-//   }
-// }

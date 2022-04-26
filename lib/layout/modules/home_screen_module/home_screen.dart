@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+                    padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
                     width: SizeConfig.screenWidth,
                     child: Row(mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -102,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                         SizedBox(width: getProportionateScreenWidth(10),),
-                        Expanded(child: Image(image: AssetImage('assets/images/job_applicants.png',),))
+                        const Expanded(child: Image(image: AssetImage('assets/images/job_applicants.png',),))
                       ],
                     ),
                     decoration: BoxDecoration(

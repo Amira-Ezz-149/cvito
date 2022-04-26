@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/cubit/states.dart';
 import 'package:flutter/material.dart';
@@ -288,6 +287,40 @@ class CVCubit extends Cubit<CVStates> {
     "Danish",
     "Sam",
   ];
+
+
+  ///empty String list
+  // var items = <String>[];
+  // TextEditingController editingController = TextEditingController();
+  // // final duplicateItems = List<String>.generate(10000, (i) => "Item $i");
+  // // List<String> duplicateItems =['a', 'aa', 'aaa', 'aaaa', 'aaaaa'];
+  // //duplicateItems = UserChatUsers
+  //
+  // @override
+  // void initState() {
+  //   items.addAll(UserChatUsers);
+  // }
+  //
+  // void filterSearchResults(String query) {
+  //   List<String> dummySearchList = <String>[];
+  //   dummySearchList.addAll(UserChatUsers);
+  //   if(query.isNotEmpty) {
+  //     List<String> dummyListData = <String>[];
+  //     for (var item in dummySearchList) {
+  //       if(item.contains(query)) {
+  //         dummyListData.add(item);
+  //       }
+  //     }
+  //       items.clear();
+  //       items.addAll(dummyListData);
+  //     return;
+  //   } else {
+  //       items.clear();
+  //       items.addAll(UserChatUsers);
+  //
+  //   }
+  //   emit(CVUserUpdateChatState());
+  // }
 
   int userCurrentBottomIndex = 0;
 

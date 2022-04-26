@@ -2,8 +2,6 @@ import 'dart:io';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
 import 'package:cvito/layout/modules/home_screen_module/home_screen.dart';
-import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_home_company_screen.dart';
-import 'package:cvito/layout/modules/software_company_module/tab_bar_company_screens_module/tab_jobs_company_screen.dart';
 import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_about_user_screen.dart';
 import 'package:cvito/layout/modules/user_profile_module/tab_bar_user_profile_screens_modules/tab_experience_user_screen.dart';
 import 'package:cvito/layout/widgets/basic_custom_button.dart';
@@ -191,7 +189,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                   children: [
                     ///=========================================================
                     ///company title and its description
-                     Text('Eyad Najy ',
+                     const Text('Eyad Najy ',
                       style: TextStyle(
                           color: kCustomBlack,
                           fontWeight: FontWeight.w500,
@@ -200,7 +198,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                     const SizedBox(height: 10.0),
                      Text(
                       widget.jobTitle,
-                      style: TextStyle(
+                      style: const TextStyle(
                           letterSpacing: 1,
                           color: kCustomBlack,
                           fontWeight: FontWeight.w400,
@@ -215,7 +213,7 @@ class _UserProfileScreenState extends State<UserProfileScreen>
                         ),
                         Text(
                          widget.jobLocation,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.w300,
                               fontSize: 15.0),

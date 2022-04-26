@@ -389,12 +389,12 @@ class CustomDrawerRow extends StatelessWidget {
             color: Colors.grey,
             size: 28.0,
           ),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           ),
           Text(
             labelText!,
-            style: TextStyle(fontSize: 15.0),
+            style: const TextStyle(fontSize: 15.0),
           ),
         ],
       ),

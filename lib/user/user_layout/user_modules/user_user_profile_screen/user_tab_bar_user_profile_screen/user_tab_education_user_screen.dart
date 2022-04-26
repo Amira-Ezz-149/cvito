@@ -64,9 +64,8 @@ class TimelineComponentState extends State<TimelineComponent>
         itemCount: widget.timelineList.length,
         itemBuilder: (_, index) {
           return TimelineElement(
-            lineColor: widget.timelineList[index].lineColor ??
-                Theme.of(context).accentColor,
-            backgroundColor: widget.backgroundColor ?? Colors.white,
+            lineColor: widget.timelineList[index].lineColor,
+            backgroundColor: widget.backgroundColor,
             model: widget.timelineList[index],
             firstElement: index == 0,
             lastElement: widget.timelineList.length == index + 1,

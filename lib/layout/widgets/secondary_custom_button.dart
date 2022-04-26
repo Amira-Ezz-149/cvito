@@ -20,7 +20,7 @@ class SecondaryCustomButton extends StatelessWidget {
         onPrimary: kBasicColor,
         primary: Colors.white,
         onSurface: Colors.grey,
-        side: BorderSide(color: kBasicColor, width: 1),
+        side: const BorderSide(color: kBasicColor, width: 1),
 
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)),

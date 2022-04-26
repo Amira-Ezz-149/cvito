@@ -111,7 +111,7 @@ class UserJobsScreen extends StatelessWidget {
                                     },
                                         child: const Text('Software Company')),
                                     Text(
-                                        '${cubit.userJobsLocationList[index]}'),
+                                        cubit.userJobsLocationList[index]),
                                   ],
                                 ),
                                 trailing:
@@ -171,7 +171,7 @@ class UserJobsScreen extends StatelessWidget {
                                   children: [
                                     const Text('Software Company'),
                                     Text(
-                                        '${cubit.userJobsLocationList[index]}'),
+                                        cubit.userJobsLocationList[index]),
                                     Padding(
                                       padding: const EdgeInsets.only(top: 8.0),
                                       child: Row(

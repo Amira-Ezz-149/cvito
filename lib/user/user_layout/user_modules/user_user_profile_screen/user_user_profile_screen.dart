@@ -8,6 +8,7 @@ import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'user_tab_bar_user_profile_screen/user_tab_about_user_screen.dart';
 import 'user_tab_bar_user_profile_screen/user_tab_education_user_screen.dart';
 import 'user_tab_bar_user_profile_screen/user_tab_experience_user_screen.dart';
@@ -28,8 +29,14 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
     with TickerProviderStateMixin {
   File? profileImage;
   File? backgroundImage;
+  String? imagePath;
 
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadImage();
+  }
 
   Future pickImage() async {
     try {
@@ -71,12 +78,12 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                           //todo imageBackground UI
                           image: backgroundImage != null
                               ? Image.file(
-                            backgroundImage!,
-                            height: getProportionateScreenHeight(150),
-                            fit: BoxFit.cover,
-                          ).image
+                                  backgroundImage!,
+                                  height: getProportionateScreenHeight(150),
+                                  fit: BoxFit.cover,
+                                ).image
                               : const AssetImage(
-                              'assets/images/company_background.png'),
+                                  'assets/images/company_background.png'),
                         ),
                       ),
                       child: Padding(
@@ -88,7 +95,9 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                             TransparentIcon(
                               icon: Icons.arrow_back,
                               onPressed: () {
-                               navigateTo(context: context, widget: const UserLayoutScreen());
+                                navigateTo(
+                                    context: context,
+                                    widget: const UserLayoutScreen());
                               },
                             ),
                             TransparentIcon(
@@ -96,7 +105,7 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                               onPressed: () {
                                 //todo calling backgroundImage
                                 pickImage().then((value) {
-                                  if(value != null) debugPrint('finish');
+                                  if (value != null) debugPrint('finish');
                                   debugPrint(value.toString());
                                   setState(() {
                                     backgroundImage = value;
@@ -120,7 +129,7 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                         children: [
                           SizedBox(
                             width: getProportionateScreenWidth(160),
-                            height: getProportionateScreenHeight(170),
+                            height: getProportionateScreenHeight(200),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,12 +158,13 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                                 //todo calling profileImage
                                 debugPrint('onClick');
                                 pickImage().then((value) {
-                                  if(value != null) debugPrint('finish');
+                                  if (value != null) debugPrint('finish');
                                   debugPrint(value.toString());
                                   setState(() {
                                     profileImage = value;
                                   });
-                                } );
+                                });
+                                saveImage(path: profileImage!.path);
                               },
                               child: const CircleAvatar(
                                 child: Icon(
@@ -170,11 +180,26 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                         ],
                       ),
                     ),
-                    // ),
-                    // ),
                   ],
                 ),
               ),
+              // Padding(
+              //   padding: const EdgeInsets.only(right : 20.0, left: 60.0),
+              //   child: ElevatedButton(
+              //     onPressed: () {
+              //       saveImage(path: profileImage!.path);
+              //     },
+              //     child: const Text('save'),
+              //     style: ElevatedButton.styleFrom(
+              //       onPrimary: Colors.white,
+              //       primary: kBasicColor,
+              //       onSurface: Colors.grey,
+              //       side: const BorderSide(color: kBasicColor, width: 1),
+              //       shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(30)),
+              //     ),
+              //   ),
+              // ),
               SizedBox(height: getProportionateScreenHeight(20.0)),
 
               ///===============================================================================================
@@ -186,7 +211,8 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                   children: [
                     ///=========================================================
                     ///company title and its description
-                   const Text('Eyad Najy ',
+                    const Text(
+                      'Eyad Najy ',
                       style: TextStyle(
                           color: kCustomBlack,
                           fontWeight: FontWeight.w500,
@@ -276,5 +302,17 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
         ),
       ),
     );
+  }
+
+  void saveImage({required path}) async {
+    SharedPreferences saveImage = await SharedPreferences.getInstance();
+    saveImage.setString('imagePath', path);
+  }
+
+  void loadImage() async {
+    SharedPreferences saveImage = await SharedPreferences.getInstance();
+    setState(() {
+      imagePath = saveImage.getString('imagePath');
+    });
   }
 }
