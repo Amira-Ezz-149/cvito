@@ -1,4 +1,5 @@
 import 'package:cvito/helpers/custom_error_screen.dart';
+import 'package:cvito/layout/modules/performance_screen.dart';
 import 'package:cvito/layout/modules/splash_screen_module/splash_screen.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +17,14 @@ class MyApp extends StatelessWidget {
 
 
 
-  ///update
+  ///update term2
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
+
+    debugInvertOversizedImages = true;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
