@@ -1,9 +1,9 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
 import 'package:cvito/user/user_layout/user_layout.dart';
+import 'package:cvito/user/user_layout/user_modules/user_create_cv_module/building_manual_cv/create_template.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
-
 
 class UserCreateCVScreen extends StatelessWidget {
   const UserCreateCVScreen({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class UserCreateCVScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-          padding: const EdgeInsets.only(left: 20.0, top: 15.0),
+            padding: const EdgeInsets.only(left: 20.0, top: 15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -24,8 +24,7 @@ class UserCreateCVScreen extends StatelessWidget {
                     IconButton(
                       onPressed: () {
                         navigateTo(
-                            context: context,
-                            widget: const UserLayoutScreen());
+                            context: context, widget: const UserLayoutScreen());
                       },
                       icon: const Icon(Icons.arrow_back),
                     ),
@@ -38,7 +37,7 @@ class UserCreateCVScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                 SizedBox(height: getProportionateScreenHeight(25.0)),
+                SizedBox(height: getProportionateScreenHeight(25.0)),
                 const Text('Select your Field!',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -55,12 +54,18 @@ class UserCreateCVScreen extends StatelessWidget {
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       children: [
-                        CustomCardField(imageLink:'assets/images/technical_or_general.png'),
-                        CustomCardField(imageLink:'assets/images/medical_field.png'),
-                        CustomCardField(imageLink:'assets/images/graphic_design.png'),
+                        CustomCardField(
+                            imageLink:
+                                'assets/images/technical_or_general.png'),
+                        CustomCardField(
+                            imageLink: 'assets/images/medical_field.png'),
+                        CustomCardField(
+                            imageLink: 'assets/images/graphic_design.png'),
                       ],
                     )),
-               const SizedBox(height: 20.0,),
+                const SizedBox(
+                  height: 20.0,
+                ),
                 const Text('CVs',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -72,7 +77,7 @@ class UserCreateCVScreen extends StatelessWidget {
                 ///CVs
                 Padding(
                   //todo create your cv important to fix
-                  padding:  const EdgeInsets.only(right:20.0),
+                  padding: const EdgeInsets.only(right: 20.0),
                   child: Container(
                     height: getProportionateScreenHeight(290),
                     padding: const EdgeInsets.only(right: 20.0),
@@ -85,13 +90,21 @@ class UserCreateCVScreen extends StatelessWidget {
                                 fit: BoxFit.cover),
                           ),
                         ),
-                         SizedBox(width: getProportionateScreenWidth(15.0)),
+                        SizedBox(width: getProportionateScreenWidth(15.0)),
                         Expanded(
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Image.asset(
-                              'assets/images/manual.png',
-                              fit: BoxFit.cover,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => CreateTemplate()),
+                              );
+                            },
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Image.asset(
+                                'assets/images/manual.png',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -106,7 +119,6 @@ class UserCreateCVScreen extends StatelessWidget {
       ),
     );
   }
-
 }
 
 class BuildSheet extends StatelessWidget {
@@ -124,12 +136,12 @@ class BuildSheet extends StatelessWidget {
           children: [
             Center(
                 child: Container(
-                  width: 100.0,
-                  height: 7.0,
-                  decoration: BoxDecoration(
-                      color: kCustomBlack,
-                      borderRadius: BorderRadius.circular(10.0)),
-                )),
+              width: 100.0,
+              height: 7.0,
+              decoration: BoxDecoration(
+                  color: kCustomBlack,
+                  borderRadius: BorderRadius.circular(10.0)),
+            )),
             const SizedBox(height: 20.0),
             const Text('Opened Categories',
                 style: TextStyle(
@@ -167,14 +179,14 @@ class BuildSheet extends StatelessWidget {
   }
 }
 
-
 class CustomCardField extends StatelessWidget {
-
   String? imageLink;
+
   CustomCardField({required this.imageLink});
+
   @override
   Widget build(BuildContext context) {
-    return  InkWell(
+    return InkWell(
       child: Image.asset(imageLink!),
       onTap: () {
         showModalBottomSheet(
@@ -189,4 +201,3 @@ class CustomCardField extends StatelessWidget {
     );
   }
 }
-

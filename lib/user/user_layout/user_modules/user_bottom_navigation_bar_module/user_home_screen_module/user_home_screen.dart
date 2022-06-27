@@ -1,7 +1,9 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/widgets/custom_card.dart';
-import 'package:cvito/layout/widgets/default_form_field.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
+import 'package:cvito/company/company_layout/company_widgets/custom_card.dart';
+import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
+import 'package:cvito/some_helpers/start_modules/get_started_module/get_started_screen.dart';
+import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/user/user_layout/user_modules/user_create_cv_module/user_create_cv_screen.dart';
 import 'package:cvito/user/user_layout/user_modules/user_user_profile_screen/user_user_profile_screen.dart';
 import 'package:cvito/utilities.dart';
@@ -124,7 +126,9 @@ class UserHomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: CustomDrawerRow(
-                  function: () {},
+                  function: () {
+                    navigateTo(context: context, widget: GetStartedScreen());
+                  },
                   labelIcon: Icons.logout,
                   labelText: 'Logout'),
             ),

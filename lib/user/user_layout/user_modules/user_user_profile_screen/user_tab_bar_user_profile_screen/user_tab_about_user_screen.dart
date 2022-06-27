@@ -1,9 +1,9 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/cubit/cubit.dart';
-import 'package:cvito/cubit/states.dart';
-import 'package:cvito/layout/widgets/edit_row.dart';
-import 'package:cvito/layout/widgets/see_more_see_less.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
+import 'package:cvito/some_helpers/cubit/cubit.dart';
+import 'package:cvito/some_helpers/cubit/states.dart';
+import 'package:cvito/company/company_layout/company_widgets/edit_row.dart';
+import 'package:cvito/company/company_layout/company_widgets/see_more_see_less.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -73,7 +73,7 @@ class UserTabAboutUserScreen extends StatelessWidget {
                     const Text(
                       'CVs',
                       style: TextStyle(
-                          color: kCustomBlack,
+                          color: Colors.red,
                           fontSize: 20.0,
                           fontWeight: FontWeight.w500),
                     ),
@@ -90,22 +90,23 @@ class UserTabAboutUserScreen extends StatelessWidget {
                             onTap: () {},
                             child: Container(
                               alignment: Alignment.topCenter,
-                              // width: MediaQuery.of(context).size.width / 2,
-                              height: MediaQuery.of(context).size.height / 3.5,
+                                width: MediaQuery.of(context).size.width / 2.5,
                               decoration: BoxDecoration(color: kBasicColor.withOpacity(.5),
                                  ),
                               child:   Image.asset('assets/images/cvs1.png', fit: BoxFit.cover,)
                             ),
                           ),
                         ),
+
                         const SizedBox(width: 10.0),
+
+
                         Expanded(
                           child: GestureDetector(
                             onTap: () {},
                             child: Container(
                               alignment: Alignment.topCenter,
-                              // width: MediaQuery.of(context).size.width / 2,
-                              height: MediaQuery.of(context).size.height / 3.5,
+                              width: MediaQuery.of(context).size.width / 2.5,
                               decoration: BoxDecoration(color: kBasicColor.withOpacity(.5),
                                ),
                               child: Image.asset(

@@ -1,8 +1,9 @@
-import 'package:cvito/cubit/cubit.dart';
-import 'package:cvito/cubit/states.dart';
-import 'package:cvito/layout/widgets/default_form_field.dart';
+import 'package:cvito/some_helpers/cubit/cubit.dart';
+import 'package:cvito/some_helpers/cubit/states.dart';
+import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
 import 'package:cvito/user/user_layout/user_modules/user_job_details_screen.dart';
 import 'package:cvito/user/user_layout/user_modules/user_software_company_module/user_software_company_screen.dart';
+import 'package:cvito/user/user_layout/user_modules/user_user_profile_screen/user_user_profile_screen.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,6 +35,7 @@ class UserJobsScreen extends StatelessWidget {
                           child: Image.asset('assets/images/profile_photo.png'),
                         ),
                         onTap: () {
+                            navigateTo(context: context, widget: UserUserProfileScreen(jobTitle: 'Web Development', jobLocation: 'Cairo - Egypt'));
                           print(
                               '====================================================');
                           //TODO IMPLEMENT THE FUNCTION HERE
@@ -87,10 +89,10 @@ class UserJobsScreen extends StatelessWidget {
                                 contentPadding: const EdgeInsets.symmetric(
                                     vertical: 15.0, horizontal: 5.0),
 
-                                leading: const CircleAvatar(
+                                leading: CircleAvatar(
                                   radius: 30,
                                   backgroundImage: AssetImage(
-                                      'assets/images/profile_photo.png'),
+                                      cubit.notificationsImageLinks[index]),
                                 ),
                                 // horizontalTitleGap: 5.0,
                                 title: Padding(
@@ -114,8 +116,8 @@ class UserJobsScreen extends StatelessWidget {
                                         cubit.userJobsLocationList[index]),
                                   ],
                                 ),
-                                trailing:
-                                    const Icon(Icons.bookmark_border_outlined),
+                                // trailing:
+                                //     const Icon(Icons.bookmark_border_outlined),
                               );
                             },
                             separatorBuilder:
@@ -156,10 +158,10 @@ class UserJobsScreen extends StatelessWidget {
                                 ),
                                 contentPadding: const EdgeInsets.symmetric(
                                     vertical: 15.0, horizontal: 5.0),
-                                leading: const CircleAvatar(
+                                leading: CircleAvatar(
                                   radius: 30,
                                   backgroundImage: AssetImage(
-                                      'assets/images/profile_photo.png'),
+                                      cubit.UserImageLinks[index]),
                                 ),
                                 title: Padding(
                                   padding: const EdgeInsets.only(bottom: 5.0),
@@ -206,8 +208,8 @@ class UserJobsScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                trailing:
-                                    const Icon(Icons.bookmark_border_outlined),
+                                // trailing:
+                                //     const Icon(Icons.bookmark_border_outlined),
                               );
                             },
                             separatorBuilder:

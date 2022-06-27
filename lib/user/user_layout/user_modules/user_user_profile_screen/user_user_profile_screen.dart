@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/widgets/basic_custom_button.dart';
-import 'package:cvito/layout/widgets/transparent_icon.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
+import 'package:cvito/company/company_layout/company_widgets/basic_custom_button.dart';
+import 'package:cvito/company/company_layout/company_widgets/transparent_icon.dart';
 import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,10 @@ class UserUserProfileScreen extends StatefulWidget {
   String jobTitle;
   String jobLocation;
 
-  UserUserProfileScreen({required this.jobTitle, required this.jobLocation});
+  UserUserProfileScreen({
+    required this.jobTitle,
+    required this.jobLocation,
+  });
 }
 
 class _UserUserProfileScreenState extends State<UserUserProfileScreen>
@@ -139,13 +142,14 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                                   //todo profileImage UI
                                   child: profileImage != null
                                       ? Image.file(
-                                    profileImage!,
-                                    width: 160,
-                                    height:
-                                    getProportionateScreenHeight(170),
-                                    fit: BoxFit.cover,
-                                  )
-                                      : const FlutterLogo(size: 100),
+                                          profileImage!,
+                                          width: 160,
+                                          height:
+                                              getProportionateScreenHeight(170),
+                                          fit: BoxFit.cover,
+                                        )
+                                      : Image.asset(
+                                          'assets/images/developer.jpg'),
                                 ),
                               ],
                             ),
@@ -183,23 +187,6 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                   ],
                 ),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(right : 20.0, left: 60.0),
-              //   child: ElevatedButton(
-              //     onPressed: () {
-              //       saveImage(path: profileImage!.path);
-              //     },
-              //     child: const Text('save'),
-              //     style: ElevatedButton.styleFrom(
-              //       onPrimary: Colors.white,
-              //       primary: kBasicColor,
-              //       onSurface: Colors.grey,
-              //       side: const BorderSide(color: kBasicColor, width: 1),
-              //       shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(30)),
-              //     ),
-              //   ),
-              // ),
               SizedBox(height: getProportionateScreenHeight(20.0)),
 
               ///===============================================================================================

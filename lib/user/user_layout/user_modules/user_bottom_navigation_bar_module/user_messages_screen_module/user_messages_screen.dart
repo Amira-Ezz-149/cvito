@@ -1,9 +1,11 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/cubit/cubit.dart';
-import 'package:cvito/cubit/states.dart';
-import 'package:cvito/layout/widgets/custom_list_tile_messages.dart';
-import 'package:cvito/layout/widgets/custom_top_bar.dart';
-import 'package:cvito/layout/widgets/default_form_field.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/cubit/cubit.dart';
+import 'package:cvito/some_helpers/cubit/states.dart';
+import 'package:cvito/company/company_layout/company_widgets/custom_list_tile_messages.dart';
+import 'package:cvito/company/company_layout/company_widgets/custom_top_bar.dart';
+import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
+import 'package:cvito/user/user_layout/user_modules/user_user_profile_screen/user_user_profile_screen.dart';
+import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -28,6 +30,9 @@ class UserMessagesScreen extends StatelessWidget {
                 title: 'Chats',
                 imageLink: 'assets/images/profile_photo.png',
                 color: kCustomBlack,
+                function: () {
+                  navigateTo(context: context, widget: UserUserProfileScreen(jobTitle: 'Web Development', jobLocation: 'Cairo - Egypt',));
+                } ,
               ),
 
               ///=============================================================
@@ -83,6 +88,8 @@ class UserMessagesScreen extends StatelessWidget {
                               key: ValueKey(index),
                               child: CustomListTileMessages(
                                 user: cubit.UserChatUsers[index],
+                                imageLink: cubit.UserImageLinks[index],
+                                chatTime: cubit.UserChatTimes[index],
                               ),
 
                               /// start actions swap to right

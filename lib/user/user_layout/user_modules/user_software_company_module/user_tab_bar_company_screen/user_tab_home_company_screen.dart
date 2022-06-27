@@ -1,10 +1,10 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/cubit/cubit.dart';
-import 'package:cvito/cubit/states.dart';
-import 'package:cvito/layout/modules/user_profile_module/user_profile_screen.dart';
-import 'package:cvito/layout/widgets/edit_row.dart';
-import 'package:cvito/layout/widgets/see_more_see_less.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
+import 'package:cvito/some_helpers/cubit/cubit.dart';
+import 'package:cvito/some_helpers/cubit/states.dart';
+import 'package:cvito/company/company_layout/company_modules/user_profile_module/user_profile_screen.dart';
+import 'package:cvito/company/company_layout/company_widgets/edit_row.dart';
+import 'package:cvito/company/company_layout/company_widgets/see_more_see_less.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +26,7 @@ class UserTabHomeCompanyScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  EditRow(icon: Icons.edit, label: 'About'),
+                  EditRow( label: 'Home'),
                   buildText(
                       'a technology firm specialized in developing innovative web-based online employment marketplaces and platforms.'),
                   const SizedBox(height: 10.0),
@@ -67,7 +67,7 @@ class UserTabHomeCompanyScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  EditRow(icon: Icons.edit, label: 'Openning Jobs'),
+                  EditRow(label: 'Opening Jobs'),
 
                   ///==============================================================================================
                   /// jobs sections list view builder ....vertical
@@ -88,7 +88,7 @@ class UserTabHomeCompanyScreen extends StatelessWidget {
                                 ));
                           },
                           child: ListTile(
-                            trailing: const Icon(Icons.edit),
+                            // trailing: const Icon(Icons.edit),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(7),
                               side: const BorderSide(
@@ -103,7 +103,7 @@ class UserTabHomeCompanyScreen extends StatelessWidget {
                             leading: CircleAvatar(
                               radius: 30,
                               child: Image.asset(
-                                  'assets/images/profile_photo.png'),
+                                  cubit.UserImageLinks[index]),
                             ),
                             tileColor: Colors.transparent,
                             title: Row(
@@ -139,29 +139,31 @@ class UserTabHomeCompanyScreen extends StatelessWidget {
 
                     ///==========================================================================================================
                     /// Your Employees list view builder ....horizontal
-                    child: ListView.separated(
-                        physics: const BouncingScrollPhysics(),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: const [
-                              CircleAvatar(
-                                child: Image(
-                                    image: AssetImage(
-                                        'assets/images/profile_photo.png')),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'Najy',
-                              ),
-                            ],
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const SizedBox(width: 20.0);
-                        }),
+                    child: Center(
+                      child: ListView.separated(
+                          physics: const BouncingScrollPhysics(),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 8,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              children:  [
+                                CircleAvatar(
+                                  child: Image(
+                                      image: AssetImage(
+                                          cubit.notificationsImageLinks[index])),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                 cubit.UserChatUsers[index]
+                                ),
+                              ],
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return const SizedBox(width: 20.0);
+                          }),
+                    ),
                   ),
                   const SizedBox(height: 15.0),
                   const Center(

@@ -1,6 +1,6 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/cubit/cubit.dart';
-import 'package:cvito/cubit/states.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/cubit/cubit.dart';
+import 'package:cvito/some_helpers/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

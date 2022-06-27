@@ -1,7 +1,7 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/widgets/basic_custom_button.dart';
-import 'package:cvito/layout/widgets/secondary_custom_button.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
+import 'package:cvito/company/company_layout/company_widgets/basic_custom_button.dart';
+import 'package:cvito/company/company_layout/company_widgets/secondary_custom_button.dart';
 import 'package:flutter/material.dart';
 
 class UserJobDetailsScreen extends StatelessWidget {
@@ -65,7 +65,7 @@ class UserJobDetailsScreen extends StatelessWidget {
                             color: kCustomBlack,
                             fontWeight: FontWeight.w500)),
                     SizedBox(width: getProportionateScreenWidth(20.0)),
-                    const Icon(Icons.more_vert)
+                    // const Icon(Icons.more_vert)
                   ],
                 ),
                 SizedBox(height: getProportionateScreenHeight(30.0)),
@@ -75,13 +75,13 @@ class UserJobDetailsScreen extends StatelessWidget {
                         backgroundColor: kBasicColor,
                         radius: 25,
                         backgroundImage:
-                            AssetImage('assets/images/meeting.jpeg')),
+                            AssetImage('assets/images/company.png')),
                     SizedBox(width: getProportionateScreenWidth(15.0)),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         Text('Software Company'),
-                        Text('Staffing & Recruiting . Cairo,Egypt'),
+                        Text('Staffing & Recruiting.Cairo'),
                       ],
                     ),
                   ],
@@ -122,28 +122,30 @@ class UserJobDetailsScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      BasicCustomButton(
-                        text: 'Apply',
-                        function: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) => const AlertDialog(
-                                    contentPadding: EdgeInsets.symmetric(
-                                        horizontal: 15.0, vertical: 40.0),
-                                    title: Icon(
-                                      Icons.check_circle,
-                                      color: Colors.green,
-                                      size: 40,
-                                    ),
-                                    content: Text(
-                                      'Your application was sent successfully!',
-                                      style: TextStyle(fontSize: 15.0),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ));
-                        },
+                      Expanded(
+                        child: BasicCustomButton(
+                          text: 'Apply',
+                          function: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => const AlertDialog(
+                                      contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 30.0, vertical: 45.0),
+                                      title: Icon(
+                                        Icons.check_circle,
+                                        color: Colors.green,
+                                        size: 40,
+                                      ),
+                                      content: Text(
+                                        'Your application was sent successfully!',
+                                        style: TextStyle(fontSize: 16.0),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ));
+                          },
+                        ),
                       ),
-                      SecondaryCustomButton(text: 'Save', function: () {})
+                      // SecondaryCustomButton(text: 'Save', function: () {})
                     ],
                   ),
                 ),

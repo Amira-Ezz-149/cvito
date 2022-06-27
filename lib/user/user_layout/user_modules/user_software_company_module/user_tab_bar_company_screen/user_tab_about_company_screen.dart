@@ -1,9 +1,9 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/cubit/cubit.dart';
-import 'package:cvito/cubit/states.dart';
-import 'package:cvito/layout/widgets/edit_row.dart';
-import 'package:cvito/layout/widgets/see_more_see_less.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
+import 'package:cvito/some_helpers/cubit/cubit.dart';
+import 'package:cvito/some_helpers/cubit/states.dart';
+import 'package:cvito/company/company_layout/company_widgets/edit_row.dart';
+import 'package:cvito/company/company_layout/company_widgets/see_more_see_less.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +25,7 @@ class UserTabAboutCompanyScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  EditRow(icon: Icons.edit, label: 'About'),
+                  EditRow(label: 'About'),
                   buildText(
                       'We constantly strive to develop our unique talent pool and wealth of skills. Our company is constantly on the lookout for talented individuals who can make a valuable contribution to the success of our products. This is the only way to attain excellence: combining talent with relentless commitment to innovation.'),
                   const SizedBox(height: 20.0),

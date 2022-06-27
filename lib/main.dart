@@ -1,7 +1,5 @@
-import 'package:cvito/helpers/custom_error_screen.dart';
-import 'package:cvito/layout/modules/performance_screen.dart';
-import 'package:cvito/layout/modules/splash_screen_module/splash_screen.dart';
-// import 'package:firebase_core/firebase_core.dart';
+import 'package:cvito/some_helpers/helpers/custom_error_screen.dart';
+import 'package:cvito/some_helpers/start_modules/splash_screen_module/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

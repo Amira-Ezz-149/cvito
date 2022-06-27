@@ -96,7 +96,7 @@ flutter:
     - assets/images/card1.png
     - assets/images/profile_photo.png
     - assets/images/linkedIn_logo.png
-    - assets/images/grammer_chaeck.png
+    - assets/images/grammar_check.png
     - assets/images/company_background.png
     - assets/images/company.png
     - assets/images/meeting.jpeg
@@ -107,6 +107,7 @@ flutter:
     - assets/images/job_applicants.png
     - assets/images/search.png
     - assets/images/technical_or_general.png
+    - assets/images/person1.png
 
 
 

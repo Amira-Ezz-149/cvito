@@ -1,8 +1,7 @@
 import 'dart:io';
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/layout/widgets/basic_custom_button.dart';
-import 'package:cvito/layout/widgets/transparent_icon.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/some_helpers/constants/sized_config.dart';
+import 'package:cvito/company/company_layout/company_widgets/transparent_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -15,7 +14,8 @@ import 'user_tab_bar_company_screen/user_tab_jobs_company_screen.dart';
 
 class UserSoftwareCompanyScreen extends StatefulWidget {
   @override
-  State<UserSoftwareCompanyScreen> createState() => _UserSoftwareCompanyScreenState();
+  State<UserSoftwareCompanyScreen> createState() =>
+      _UserSoftwareCompanyScreenState();
 }
 
 class _UserSoftwareCompanyScreenState extends State<UserSoftwareCompanyScreen>
@@ -62,12 +62,12 @@ class _UserSoftwareCompanyScreenState extends State<UserSoftwareCompanyScreen>
                           //todo backgroundImage UI
                           image: backgroundImage != null
                               ? Image.file(
-                            backgroundImage!,
-                            height: getProportionateScreenHeight(150),
-                            fit: BoxFit.cover,
-                          ).image
+                                  backgroundImage!,
+                                  height: getProportionateScreenHeight(150),
+                                  fit: BoxFit.cover,
+                                ).image
                               : const AssetImage(
-                              'assets/images/company_background.png'),
+                                  'assets/images/company_background.png'),
                         ),
                       ),
                       child: Padding(
@@ -79,20 +79,7 @@ class _UserSoftwareCompanyScreenState extends State<UserSoftwareCompanyScreen>
                             TransparentIcon(
                               icon: Icons.arrow_back,
                               onPressed: () {
-                               Navigator.pop(context);
-                              },
-                            ),
-                            TransparentIcon(
-                              icon: Icons.edit,
-                              onPressed: () {
-                                //todo calling backgroundImage
-                                pickImage().then((value) {
-                                  if (value != null) debugPrint('finish');
-                                  debugPrint(value.toString());
-                                  setState(() {
-                                    backgroundImage = value;
-                                  });
-                                });
+                                Navigator.pop(context);
                               },
                             ),
                           ],
@@ -121,57 +108,28 @@ class _UserSoftwareCompanyScreenState extends State<UserSoftwareCompanyScreen>
                                   //todo profileImage UI
                                   child: profileImage != null
                                       ? Image.file(
-                                    profileImage!,
-                                    width: 160,
-                                    height:
-                                    getProportionateScreenHeight(170),
-                                    fit: BoxFit.cover,
-                                  )
-                                      : const FlutterLogo(size: 100),
+                                          profileImage!,
+                                          width: 160,
+                                          height:
+                                              getProportionateScreenHeight(220),
+                                          fit: BoxFit.cover,
+                                        )
+                                      : Image.asset(
+                                          'assets/images/company_profile.png'),
                                 ),
                               ],
-                            ),
-                          ),
-                          Positioned(
-                            right: -10,
-                            bottom: 10,
-                            // alignment: Alignment.bottomRight,
-                            child: GestureDetector(
-                              // behavior: HitTestBehavior.translucent,
-                              onTap: () {
-                                //todo calling profileImage
-                                debugPrint('onClick');
-                                pickImage().then((value) {
-                                  if (value != null) debugPrint('finish');
-                                  debugPrint(value.toString());
-                                  setState(() {
-                                    profileImage = value;
-                                  });
-                                });
-                              },
-                              child: const CircleAvatar(
-                                child: Icon(
-                                  Icons.add,
-                                  color: kBasicColor,
-                                  size: 15,
-                                ),
-                                radius: 15,
-                                backgroundColor: Colors.white,
-                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    // ),
-                    // ),
                   ],
                 ),
               ),
 
               ///===============================================================================================
               ///screen content
-              SizedBox(height: getProportionateScreenHeight(20.0)),
+              // SizedBox(height: getProportionateScreenHeight(10.0)),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
@@ -201,35 +159,6 @@ class _UserSoftwareCompanyScreenState extends State<UserSoftwareCompanyScreen>
                           color: Colors.grey,
                           fontWeight: FontWeight.w300,
                           fontSize: 13.0),
-                    ),
-
-                    ///=========================================================
-                    ///edit profile
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 15.0),
-                      child: Row(
-                        children: [
-                          BasicCustomButton(
-                              text: 'Edit Profile',
-                              function: () {
-                                debugPrint('edit profile');
-                              }),
-                          const Spacer(),
-                          const CircleAvatar(
-                            radius: 17,
-                            backgroundColor: Colors.grey,
-                            child: CircleAvatar(
-                              radius: 15,
-                              child: Icon(
-                                Icons.more_horiz_outlined,
-                                color: Colors.grey,
-                              ),
-                              backgroundColor: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
 
                     TabBar(

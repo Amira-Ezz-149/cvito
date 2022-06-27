@@ -1,7 +1,13 @@
-import 'package:cvito/constants/constants.dart';
-import 'package:cvito/layout/widgets/custom_list_tile_notifications.dart';
-import 'package:cvito/layout/widgets/custom_top_bar.dart';
+import 'package:cvito/company/company_layout/company_modules/cv_layout.dart';
+import 'package:cvito/some_helpers/constants/constants.dart';
+import 'package:cvito/company/company_layout/company_widgets/custom_list_tile_notifications.dart';
+import 'package:cvito/company/company_layout/company_widgets/custom_top_bar.dart';
+import 'package:cvito/some_helpers/cubit/cubit.dart';
+import 'package:cvito/some_helpers/cubit/states.dart';
+import 'package:cvito/user/user_layout/user_modules/user_user_profile_screen/user_user_profile_screen.dart';
+import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserNotificationsScreen extends StatelessWidget {
   const UserNotificationsScreen({Key? key}) : super(key: key);
@@ -28,7 +34,16 @@ class UserNotificationsScreen extends StatelessWidget {
                     imageLink: 'assets/images/profile_photo.png',
                     title: 'Notifications',
                     color: Colors.white,
-                  ),
+                  function: () {
+                    navigateTo(
+                        context: context,
+                        widget: UserUserProfileScreen(
+                          jobTitle: 'Web Development',
+                          jobLocation: 'Cairo - Egypt',
+
+                        ));
+                  },
+                ),
                   const Padding(
                     padding: EdgeInsets.fromLTRB(16, 16, 16, 32),
                     child: Text(
@@ -42,17 +57,28 @@ class UserNotificationsScreen extends StatelessWidget {
 
                   ///=============================================================
                   /// Today notifications
-                  ListView.separated(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
-                        return const CustomListTileNotifications();
+                  BlocProvider(
+                    create: (BuildContext context)=>CVCubit(),
+                    child: BlocConsumer<CVCubit, CVStates>(
+                      listener: (context, state) {},
+                      builder: (context, state) {
+                        CVCubit cubit = CVCubit.get(context);
+                        return ListView.separated(
+                            physics: const BouncingScrollPhysics(),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: 6,
+                            itemBuilder: (context, index) {
+                              return  CustomListTileNotifications(notificationTime: cubit.UserChatTimes[index],notificationImages: cubit.notificationsImageLinks[index] ,);
+                            },
+                            separatorBuilder: (context, index) {
+                              return const SizedBox();
+                            });
                       },
-                      separatorBuilder: (context, index) {
-                        return const SizedBox();
-                      }),
+                    ),
+                    ),
+
+
 
                   ///===========================================================
                   ///Yesterday text
@@ -73,9 +99,9 @@ class UserNotificationsScreen extends StatelessWidget {
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      itemCount: 5,
+                      itemCount: 1,
                       itemBuilder: (context, index) {
-                        return const CustomListTileNotifications();
+                        return  CustomListTileNotifications(notificationTime: '7:00 AM', notificationImages: 'assets/images/person1.png',);
                       },
                       separatorBuilder: (context, index) {
                         return const SizedBox();
@@ -85,7 +111,7 @@ class UserNotificationsScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      )
     );
   }
 }
