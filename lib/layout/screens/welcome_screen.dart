@@ -2,8 +2,8 @@ import 'package:cvito/layout/screens/get_started_screen.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import '../widgets/basic_custom_button.dart';
 import '../widgets/intro_slider.dart';
+import '../widgets/secondary_custom_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const String id = 'WelcomeScreen';
@@ -38,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
                   ///======================================================================================
                   /// Create An Automated CV   ... rafiki image
                   IntroSlider(
-                    imageLink: 'assets/images/rafiki.png',
+                    imageLink: 'assets/images/dones.png',
                     title: 'Create An Automated CV',
                     description:
                         'Our app helps you build an automated CV differently!',
@@ -47,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                   ///=====================================================================================
                   /// find your job ....bro image
                   IntroSlider(
-                    imageLink: 'assets/images/bro.png',
+                    imageLink: 'assets/images/profile.png',
                     title: 'Find Your Job',
                     description:
                         'It will also help you find a job remotely without recruiters.',
@@ -75,7 +75,7 @@ class WelcomeScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 40 / 100),
               ),
             ),
-         BasicCustomButton(text: 'Next', function: (){
+            SecondaryCustomButton(text: 'Next', function: (){
            navigateTo(context: context, widget: const GetStartedScreen());
          })
           ],

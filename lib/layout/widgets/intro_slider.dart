@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 
 class IntroSlider extends StatelessWidget {
-
   String? imageLink;
   String? title;
   String? description;
-
   IntroSlider({
     this.imageLink,
     this.title,
     this.description,
-
   });
-
-
   @override
   Widget build(BuildContext context) {
     return Column(

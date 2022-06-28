@@ -36,6 +36,22 @@
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDng87mGkktrMLus4HBI_zMe7eHchAWfyA",
+        authDomain: "cvito-1e6ab.firebaseapp.com",
+        databaseURL: "https://cvito-1e6ab.firebaseio.com",
+        projectId: "cvito-1e6ab",
+        storageBucket: "cvito-1e6ab.appspot.com",
+        messagingSenderId: "...",
+        appId: "1:...:web:...",
+        measurementId: "G-...",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;

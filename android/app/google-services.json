@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "324796702030",
+    "project_id": "cvito-1e6ab",
+    "storage_bucket": "cvito-1e6ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324796702030:android:0b4ba3c467bc2f221f121f",
+        "android_client_info": {
+          "package_name": "com.example.cvito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324796702030-n0rlds2a2927om6ujqubsflvo83tli4k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cvito",
+            "certificate_hash": "f29b6cce55b9d50e00b8206afc1317f081800f94"
+          }
+        },
+        {
+          "client_id": "324796702030-v84q3545k8mn3r46nua72b17k9miaf0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi0ny7dueSYlqEIsycwG7a0mJs6JIQ7Qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324796702030-v84q3545k8mn3r46nua72b17k9miaf0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

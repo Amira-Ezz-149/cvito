@@ -1,5 +1,3 @@
-
-import 'package:cvito/layout/widgets/basic_custom_button.dart';
 import 'package:cvito/layout/widgets/secondary_custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +24,11 @@ class GetStartedScreen extends StatelessWidget {
               const SizedBox(height: 30.0),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: BasicCustomButton(text: 'Personal', function: () {}),
+                child: SecondaryCustomButton(text: 'Personal', function: () {}),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0),
-                child: SecondaryCustomButton(text: 'Company', function: () {}),
+                child: SecondaryCustomButton(text: 'Company', function: () {  }),
               )
             ],
           ),

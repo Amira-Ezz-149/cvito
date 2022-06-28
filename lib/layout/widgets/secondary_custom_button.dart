@@ -1,4 +1,4 @@
-import 'package:cvito/constants.dart';
+import 'package:cvito/layout/widgets/constants_color.dart';
 import 'package:flutter/material.dart';
 
 
@@ -8,8 +8,6 @@ class SecondaryCustomButton extends StatelessWidget {
 
   final String? text;
   final VoidCallback? function;
-
-
 
   @override
   Widget build(BuildContext context) {
