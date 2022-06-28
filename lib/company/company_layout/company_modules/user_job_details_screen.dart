@@ -1,13 +1,13 @@
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
-import 'package:cvito/company/company_layout/company_widgets/basic_custom_button.dart';
-import 'package:cvito/company/company_layout/company_widgets/secondary_custom_button.dart';
+import 'package:cvito/company/company_layout/custom_widgets/basic_custom_button.dart';
+import 'package:cvito/company/company_layout/custom_widgets/secondary_custom_button.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 
-import 'software_company_module/software_company_screen.dart';
+import 'company_software_company_module/company_software_company_screen.dart';
 
-class JobDetailsScreen extends StatelessWidget {
+class UserJobDetailsScreen extends StatelessWidget {
   List<String> levels = [
     'Full-time  .  Entry-level',
     'part-time  .  inter-level',

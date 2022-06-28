@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //////لو في أي كود محتاجين نشيله على جمب علشان نتيست كود تاني ممكن نحطه هنا مؤقتًاimport 'dart:io';
 /*
-import 'package:cvito/company_layout/company_widgets/default_form_field.dart';
+import 'package:cvito/company_layout/custom_widgets/default_form_field.dart';
 import 'package:flutter/material.dart';
 
 class UserJobsScreen extends StatelessWidget {
@@ -152,8 +152,8 @@ _scaffoldKey.currentState?.openDrawer();
 import 'dart:io';
 import 'package:cvito/constants/constants.dart';
 import 'package:cvito/constants/sized_config.dart';
-import 'package:cvito/company_layout/company_widgets/basic_custom_button.dart';
-import 'package:cvito/company_layout/company_widgets/transparent_icon.dart';
+import 'package:cvito/company_layout/custom_widgets/basic_custom_button.dart';
+import 'package:cvito/company_layout/custom_widgets/transparent_icon.dart';
 import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';

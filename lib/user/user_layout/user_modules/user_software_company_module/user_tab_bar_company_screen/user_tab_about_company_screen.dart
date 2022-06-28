@@ -2,8 +2,8 @@ import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
-import 'package:cvito/company/company_layout/company_widgets/edit_row.dart';
-import 'package:cvito/company/company_layout/company_widgets/see_more_see_less.dart';
+import 'package:cvito/company/company_layout/custom_widgets/edit_row.dart';
+import 'package:cvito/company/company_layout/custom_widgets/see_more_see_less.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

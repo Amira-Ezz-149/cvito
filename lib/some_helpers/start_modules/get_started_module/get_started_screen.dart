@@ -1,7 +1,7 @@
 import 'package:cvito/some_helpers/constants/constants.dart';
-import 'package:cvito/company/company_layout/company_modules/cv_layout.dart';
-import 'package:cvito/company/company_layout/company_widgets/basic_custom_button.dart';
-import 'package:cvito/company/company_layout/company_widgets/secondary_custom_button.dart';
+import 'package:cvito/company/company_layout/company_layout.dart';
+import 'package:cvito/company/company_layout/custom_widgets/basic_custom_button.dart';
+import 'package:cvito/company/company_layout/custom_widgets/secondary_custom_button.dart';
 import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class GetStartedScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: SecondaryCustomButton(text: 'Company', function: () {
-                  navigateTo(context: context, widget: const LayoutScreen());
+                  navigateTo(context: context, widget: const CompanyLayoutScreen());
 
                 }),
               )

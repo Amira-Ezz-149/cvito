@@ -3,8 +3,7 @@ import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-class TabExperienceUserScreen extends StatelessWidget {
+class CompanyTabEducationUserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -15,10 +14,10 @@ class TabExperienceUserScreen extends StatelessWidget {
           var cubit = CVCubit();
           return Scaffold(
               body: TimelineComponent(
-            timelineList: cubit.userExperienceList,
-            backgroundColor: Colors.white,
-            // headingColor: Colors.green,
-          ));
+                timelineList: cubit.userEducationList,
+                backgroundColor: Colors.white,
+                // headingColor: Colors.green,
+              ));
         },
       ),
     );
@@ -64,14 +63,14 @@ class TimelineComponentState extends State<TimelineComponent>
         itemCount: widget.timelineList.length,
         itemBuilder: (_, index) {
           return TimelineElement(
-              lineColor: widget.timelineList[index].lineColor ,
-              backgroundColor: widget.backgroundColor,
-              model: widget.timelineList[index],
-              firstElement: index == 0,
-              lastElement: widget.timelineList.length == index + 1,
-              controller: controller!,
-              // headingColor: widget.timelineList[index].titleColor,
-              // descriptionColor: widget.timelineList[index].descriptionColor
+            lineColor: widget.timelineList[index].lineColor,
+            backgroundColor: widget.backgroundColor ,
+            model: widget.timelineList[index],
+            firstElement: index == 0,
+            lastElement: widget.timelineList.length == index + 1,
+            controller: controller!,
+            // headingColor: widget.timelineList[index].titleColor,
+            // descriptionColor: widget.timelineList[index].descriptionColor
 
           );
         });

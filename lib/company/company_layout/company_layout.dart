@@ -4,10 +4,10 @@ import 'package:cvito/some_helpers/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LayoutScreen extends StatelessWidget {
+class CompanyLayoutScreen extends StatelessWidget {
   static const String id = 'WelcomeScreen';
 
-  const LayoutScreen({Key? key}) : super(key: key);
+  const CompanyLayoutScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

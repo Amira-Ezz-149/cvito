@@ -1,9 +1,9 @@
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
-import 'package:cvito/company/company_layout/company_widgets/custom_list_tile_messages.dart';
-import 'package:cvito/company/company_layout/company_widgets/custom_top_bar.dart';
-import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_list_tile_messages.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_top_bar.dart';
+import 'package:cvito/company/company_layout/custom_widgets/default_form_field.dart';
 import 'package:cvito/user/user_layout/user_modules/user_user_profile_screen/user_user_profile_screen.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';

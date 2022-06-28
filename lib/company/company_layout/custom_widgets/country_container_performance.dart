@@ -1,6 +1,6 @@
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
-import 'package:cvito/company/company_layout/company_widgets/country_label_performance.dart';
+import 'package:cvito/company/company_layout/custom_widgets/country_label_performance.dart';
 import 'package:flutter/material.dart';
 
 class CountryContainer extends StatelessWidget {

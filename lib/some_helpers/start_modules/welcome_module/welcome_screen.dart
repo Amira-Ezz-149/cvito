@@ -1,5 +1,5 @@
-import 'package:cvito/company/company_layout/company_widgets/basic_custom_button.dart';
-import 'package:cvito/company/company_layout/company_widgets/intro_slider.dart';
+import 'package:cvito/company/company_layout/custom_widgets/basic_custom_button.dart';
+import 'package:cvito/company/company_layout/custom_widgets/intro_slider.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';

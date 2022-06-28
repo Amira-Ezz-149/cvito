@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
-import 'package:cvito/company/company_layout/company_widgets/basic_custom_button.dart';
-import 'package:cvito/company/company_layout/company_widgets/transparent_icon.dart';
+import 'package:cvito/company/company_layout/custom_widgets/basic_custom_button.dart';
+import 'package:cvito/company/company_layout/custom_widgets/transparent_icon.dart';
 import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
@@ -149,7 +149,7 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                                           fit: BoxFit.cover,
                                         )
                                       : Image.asset(
-                                          'assets/images/developer.jpg'),
+                                          'assets/images/d_developer.png'),
                                 ),
                               ],
                             ),
@@ -244,18 +244,7 @@ class _UserUserProfileScreenState extends State<UserUserProfileScreen>
                                 debugPrint('edit profile');
                               }),
                           const Spacer(),
-                          const CircleAvatar(
-                            radius: 17,
-                            backgroundColor: Colors.grey,
-                            child: CircleAvatar(
-                              radius: 15,
-                              child: Icon(
-                                Icons.more_horiz_outlined,
-                                color: Colors.grey,
-                              ),
-                              backgroundColor: Colors.white,
-                            ),
-                          ),
+
                         ],
                       ),
                     ),

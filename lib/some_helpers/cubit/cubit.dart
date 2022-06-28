@@ -1,7 +1,7 @@
-import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_home_screen_module/home_screen.dart';
-import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_messages_screen_module/messages_screen.dart';
-import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_notifications_screen_module/notifications_screen.dart';
-import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_related_jobs_screen_module/related_screen.dart';
+import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_home_screen_module/company_home_screen.dart';
+import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_messages_screen_module/company_messages_screen.dart';
+import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_notifications_screen_module/company_notifications_screen.dart';
+import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_related_jobs_screen_module/company_related_screen.dart';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
 import 'package:cvito/user/user_layout/user_modules/user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
@@ -92,10 +92,10 @@ class CVCubit extends Cubit<CVStates> {
   int currentBottomIndex = 0;
 
   List screens = [
-    const HomeScreen(),
-    const NotificationsScreen(),
-    MessagesScreen(),
-    const RelatedScreen(),
+    const CompanyHomeScreen(),
+    const CompanyNotificationsScreen(),
+    CompanyMessagesScreen(),
+    const CompanyRelatedScreen(),
   ];
 
   void changeBottomNavBarIndex(int index) {

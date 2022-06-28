@@ -1,4 +1,3 @@
-import 'package:cvito/company/company_layout/company_widgets/secondary_custom_button.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 

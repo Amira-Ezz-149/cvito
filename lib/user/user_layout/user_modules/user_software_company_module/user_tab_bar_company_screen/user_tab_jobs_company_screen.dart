@@ -1,4 +1,4 @@
-import 'package:cvito/company/company_layout/company_widgets/edit_row.dart';
+import 'package:cvito/company/company_layout/custom_widgets/edit_row.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
 import 'package:flutter/material.dart';

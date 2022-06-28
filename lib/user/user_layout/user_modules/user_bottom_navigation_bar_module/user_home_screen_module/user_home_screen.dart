@@ -1,7 +1,7 @@
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
-import 'package:cvito/company/company_layout/company_widgets/custom_card.dart';
-import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_card.dart';
+import 'package:cvito/company/company_layout/custom_widgets/default_form_field.dart';
 import 'package:cvito/some_helpers/start_modules/get_started_module/get_started_screen.dart';
 import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/user/user_layout/user_modules/user_create_cv_module/user_create_cv_screen.dart';

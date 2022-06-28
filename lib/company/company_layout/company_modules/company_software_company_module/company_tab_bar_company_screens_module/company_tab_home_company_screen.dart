@@ -1,17 +1,17 @@
+import 'package:cvito/company/company_layout/company_modules/company_user_profile_module/company_user_profile_screen.dart';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
-import 'package:cvito/company/company_layout/company_modules/user_profile_module/user_profile_screen.dart';
-import 'package:cvito/company/company_layout/company_widgets/edit_row.dart';
-import 'package:cvito/company/company_layout/company_widgets/see_more_see_less.dart';
+import 'package:cvito/company/company_layout/custom_widgets/edit_row.dart';
+import 'package:cvito/company/company_layout/custom_widgets/see_more_see_less.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 
-class TabHomeCompanyScreen extends StatelessWidget {
+class CompanyTabHomeCompanyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -85,7 +85,7 @@ class TabHomeCompanyScreen extends StatelessWidget {
                         return GestureDetector(
                           onTap: () {
                             navigateTo(context: context,
-                                widget: UserProfileScreen(
+                                widget: CompanyUserProfileScreen(
                                   jobTitle: cubit.jobsNames[index],
                                   jobLocation: cubit.jobLocations[index],));
                           },

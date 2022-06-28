@@ -1,4 +1,4 @@
-import 'package:cvito/company/company_layout/company_modules/job_details_screen.dart';
+import 'package:cvito/company/company_layout/company_modules/user_job_details_screen.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
 import 'package:cvito/utilities.dart';
@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../company_widgets/edit_row.dart';
+import '../../../custom_widgets/edit_row.dart';
 
-class TabJobsCompanyScreen extends StatelessWidget {
-  const TabJobsCompanyScreen({Key? key}) : super(key: key);
+class CompanyTabJobsCompanyScreen extends StatelessWidget {
+  const CompanyTabJobsCompanyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class TabJobsCompanyScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return  ListTile(
                           trailing: IconButton(icon: const Icon(Icons.more_vert), onPressed: (){
-                            navigateTo(context: context, widget: JobDetailsScreen());
+                            navigateTo(context: context, widget: UserJobDetailsScreen());
                           },),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(7),

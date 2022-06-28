@@ -3,17 +3,17 @@ import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
-import 'package:cvito/company/company_layout/company_widgets/edit_row.dart';
-import 'package:cvito/company/company_layout/company_widgets/see_more_see_less.dart';
+import 'package:cvito/company/company_layout/custom_widgets/edit_row.dart';
+import 'package:cvito/company/company_layout/custom_widgets/see_more_see_less.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TabAboutUserScreen extends StatefulWidget {
+class CompanyTabAboutUserScreen extends StatefulWidget {
   @override
-  State<TabAboutUserScreen> createState() => _TabAboutUserScreenState();
+  State<CompanyTabAboutUserScreen> createState() => _CompanyTabAboutUserScreenState();
 }
 
-class _TabAboutUserScreenState extends State<TabAboutUserScreen> {
+class _CompanyTabAboutUserScreenState extends State<CompanyTabAboutUserScreen> {
 
   @override
   Widget build(BuildContext context) {

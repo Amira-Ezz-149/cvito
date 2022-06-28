@@ -1,6 +1,6 @@
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
-import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
+import 'package:cvito/company/company_layout/custom_widgets/default_form_field.dart';
 import 'package:cvito/user/user_layout/user_modules/user_job_details_screen.dart';
 import 'package:cvito/user/user_layout/user_modules/user_software_company_module/user_software_company_screen.dart';
 import 'package:cvito/user/user_layout/user_modules/user_user_profile_screen/user_user_profile_screen.dart';

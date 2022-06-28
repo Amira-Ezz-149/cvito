@@ -1,4 +1,4 @@
-import 'package:cvito/company/company_layout/company_widgets/clip_path.dart';
+import 'package:cvito/company/company_layout/custom_widgets/clip_path.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
 import 'package:flutter/material.dart';
 

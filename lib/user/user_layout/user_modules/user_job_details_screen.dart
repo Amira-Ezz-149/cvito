@@ -1,7 +1,7 @@
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
-import 'package:cvito/company/company_layout/company_widgets/basic_custom_button.dart';
-import 'package:cvito/company/company_layout/company_widgets/secondary_custom_button.dart';
+import 'package:cvito/company/company_layout/custom_widgets/basic_custom_button.dart';
+import 'package:cvito/company/company_layout/custom_widgets/secondary_custom_button.dart';
 import 'package:flutter/material.dart';
 
 class UserJobDetailsScreen extends StatelessWidget {

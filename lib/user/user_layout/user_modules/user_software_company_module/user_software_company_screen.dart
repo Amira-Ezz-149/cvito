@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
-import 'package:cvito/company/company_layout/company_widgets/transparent_icon.dart';
+import 'package:cvito/company/company_layout/custom_widgets/transparent_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';

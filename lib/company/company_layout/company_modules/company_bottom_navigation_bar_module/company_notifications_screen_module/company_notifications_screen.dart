@@ -1,14 +1,14 @@
-import 'package:cvito/company/company_layout/company_widgets/custom_top_bar.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_top_bar.dart';
 import 'package:cvito/some_helpers/constants/constants.dart';
-import 'package:cvito/company/company_layout/company_widgets/custom_list_tile_notifications.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_list_tile_notifications.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// padding = 15.0
-class NotificationsScreen extends StatelessWidget {
-  const NotificationsScreen({Key? key}) : super(key: key);
+class CompanyNotificationsScreen extends StatelessWidget {
+  const CompanyNotificationsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,16 +1,16 @@
-import 'package:cvito/company/company_layout/company_modules/software_company_module/software_company_screen.dart';
+import 'package:cvito/company/company_layout/company_modules/company_software_company_module/company_software_company_screen.dart';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
-import 'package:cvito/company/company_layout/company_widgets/custom_list_tile_messages.dart';
-import 'package:cvito/company/company_layout/company_widgets/custom_top_bar.dart';
-import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_list_tile_messages.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_top_bar.dart';
+import 'package:cvito/company/company_layout/custom_widgets/default_form_field.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class MessagesScreen extends StatelessWidget {
+class CompanyMessagesScreen extends StatelessWidget {
 
   TextEditingController messagesSearchController = TextEditingController();
 
@@ -48,27 +48,6 @@ class MessagesScreen extends StatelessWidget {
                     prefix: Icons.search),
               ),
 
-              ///=============================================================
-              ///unread messages number
-
-              /*     const Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-                  child: Text.rich(
-                      TextSpan(
-                      text: 'Unread ',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold),
-                      children: <InlineSpan>[
-                        TextSpan(
-                          text: '(2)',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, color: Colors.red),
-                        ),
-                      ])),
-                ),*/
 
               ///=============================================================
               ///list tiles for chats

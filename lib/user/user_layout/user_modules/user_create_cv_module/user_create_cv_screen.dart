@@ -86,7 +86,7 @@ class UserCreateCVScreen extends StatelessWidget {
                         Expanded(
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
-                            child: Image.asset('assets/images/automated.png',
+                            child: Image.asset('assets/images/a_automated.png',
                                 fit: BoxFit.cover),
                           ),
                         ),
@@ -102,7 +102,7 @@ class UserCreateCVScreen extends StatelessWidget {
                             child: SizedBox(
                               width: MediaQuery.of(context).size.width / 2,
                               child: Image.asset(
-                                'assets/images/manual.png',
+                                'assets/images/m_manual.png',
                                 fit: BoxFit.cover,
                               ),
                             ),

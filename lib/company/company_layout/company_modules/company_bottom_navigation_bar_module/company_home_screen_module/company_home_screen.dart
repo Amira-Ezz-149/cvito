@@ -1,15 +1,15 @@
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
-import 'package:cvito/company/company_layout/company_modules/performance_screen.dart';
-import 'package:cvito/company/company_layout/company_modules/software_company_module/software_company_screen.dart';
-import 'package:cvito/company/company_layout/company_widgets/custom_card.dart';
-import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
-import 'package:cvito/company/company_layout/company_widgets/line_chart_widget.dart';
+import 'package:cvito/company/company_layout/company_modules/company_performance_screen.dart';
+import 'package:cvito/company/company_layout/company_modules/company_software_company_module/company_software_company_screen.dart';
+import 'package:cvito/company/company_layout/custom_widgets/custom_card.dart';
+import 'package:cvito/company/company_layout/custom_widgets/default_form_field.dart';
+import 'package:cvito/company/company_layout/custom_widgets/line_chart_widget.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class CompanyHomeScreen extends StatelessWidget {
+  const CompanyHomeScreen({Key? key}) : super(key: key);
   static const String id = 'WelcomeScreen';
 
   @override
@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                       TextButton(
                           onPressed: () {
                             navigateTo(
-                                context: context, widget: PerformanceScreen());
+                                context: context, widget: CompanyPerformanceScreen());
                           },
                           child: const Icon(Icons.arrow_forward_ios_sharp))
                     ],

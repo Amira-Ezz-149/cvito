@@ -3,16 +3,16 @@ import 'dart:io';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/cubit/cubit.dart';
 import 'package:cvito/some_helpers/cubit/states.dart';
-import 'package:cvito/company/company_layout/company_modules/cv_layout.dart';
-import 'package:cvito/company/company_layout/company_widgets/company_card.dart';
-import 'package:cvito/company/company_layout/company_widgets/default_form_field.dart';
-import 'package:cvito/company/company_layout/company_widgets/suggested_people_list_tile.dart';
+import 'package:cvito/company/company_layout/company_layout.dart';
+import 'package:cvito/company/company_layout/custom_widgets/company_card.dart';
+import 'package:cvito/company/company_layout/custom_widgets/default_form_field.dart';
+import 'package:cvito/company/company_layout/custom_widgets/suggested_people_list_tile.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RelatedScreen extends StatelessWidget {
-  const RelatedScreen({Key? key}) : super(key: key);
+class CompanyRelatedScreen extends StatelessWidget {
+  const CompanyRelatedScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class RelatedScreen extends StatelessWidget {
                         color: kBasicColor,
                         onPressed: () {
                           navigateTo(
-                              context: context, widget: const LayoutScreen());
+                              context: context, widget: const CompanyLayoutScreen());
                         },
                         icon: const Icon(Icons.arrow_back)),
                     SizedBox(width: MediaQuery.of(context).size.width / 20),
