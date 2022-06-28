@@ -1,4 +1,3 @@
-import 'package:cvito/company/company_layout/company_layout.dart';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/company/company_layout/custom_widgets/custom_list_tile_notifications.dart';
 import 'package:cvito/company/company_layout/custom_widgets/custom_top_bar.dart';

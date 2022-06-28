@@ -2,7 +2,6 @@ import 'package:cvito/user/user_layout/user_layout.dart';
 import 'package:cvito/user/user_layout/user_modules/user_create_cv_module/building_manual_cv/my_text_field.dart';
 import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
-import '../../user_bottom_navigation_bar_module/user_home_screen_module/user_home_screen.dart';
 import 'template_model.dart';
 
 class CreateTemplate extends StatefulWidget {

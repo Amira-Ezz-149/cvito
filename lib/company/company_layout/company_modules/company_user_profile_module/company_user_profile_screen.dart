@@ -1,12 +1,9 @@
 import 'dart:io';
-import 'package:cvito/company/company_layout/company_modules/company_bottom_navigation_bar_module/company_home_screen_module/company_home_screen.dart';
-import 'package:cvito/company/company_layout/company_layout.dart';
 import 'package:cvito/some_helpers/constants/constants.dart';
 import 'package:cvito/some_helpers/constants/sized_config.dart';
 import 'package:cvito/company/company_layout/company_modules/company_user_profile_module/company_tab_bar_user_profile_screens_modules/company_tab_about_user_screen.dart';
 import 'package:cvito/company/company_layout/company_modules/company_user_profile_module/company_tab_bar_user_profile_screens_modules/company_tab_experience_user_screen.dart';
 import 'package:cvito/company/company_layout/custom_widgets/transparent_icon.dart';
-import 'package:cvito/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
