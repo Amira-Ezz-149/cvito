@@ -1,6 +1,6 @@
-## Cvito [cv itself operator]
+## Cvito [Cv itself operator]
 
-### Overview:
+### Overview :
 
 - It is an mobile application that has the following features modern technologies with python such as :  
 1. Grammar Correction using language_tool_python, textract, mammoth and en_core_web_sm packages.
@@ -12,7 +12,7 @@
 
 
 
-## Apps' Screens
+## Screens :
 <img align="left"  width="240" height="500" src="https://user-images.githubusercontent.com/55770440/198652784-0f08ac19-f957-4d5e-972a-958cd6b9f532.png"><img align="center"  width="240" height="500" src="https://user-images.githubusercontent.com/55770440/198652798-448f90dc-2b22-41fb-9a2e-16062b12c35e.png"><img align="center" width="240" height="500" src="https://user-images.githubusercontent.com/55770440/198652723-da89efc9-0d0e-41a6-9e02-cf7c5aec46ce.png" hspace="20">
 
 
