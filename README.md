@@ -8,7 +8,7 @@
 3. Job Matching which the Algorithm compare between job requirements and user skills in his cv and display the top rated cvs using Sklearn, Pdf miner3 and Pandas packages.
 
  
-- it builds by Flutter and firebase. This app solves the problems of most graduated people when building Resume, they don't know how to build professional Resume, but we help them to create automated resumes or CVs with different templates
+- it has been built by Flutter and firebase. This app solves problems of the most fresh graduated when they build their resumes, they don't know how to build professional resume, So we help them to create automated resumes or CVs with different templates.
 
 
 
